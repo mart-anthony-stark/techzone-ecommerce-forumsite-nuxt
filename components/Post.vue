@@ -23,9 +23,23 @@
         />
       </button>
     </div>
-    <div class="right">
-      <h1>{{ title }}</h1>
-      <h3>{{ body }}</h3>
+    <div class="right text-center w-full">
+      <h1 class="text-center font-extrabold text-l mb-12">{{ title }}</h1>
+      <h3 class="body text-justify">{{ body }}</h3>
+      <span class="read-more cursor-pointer underlined">Read More</span>
+
+      <div class="details flex justify-between absolute w-full">
+        <div class="flex">
+          <img :src="dp" class="w-12 mr-2" />
+          <span class="flex items-center gap-1">
+            <h1 class="text-blue-500 mr-2">{{ author }}</h1>
+          </span>
+        </div>
+        <div class="flex items-center gap-2">
+          <img src="/images/icons/comment.svg" class="w-4" />
+          <span class="text-blue-500 text-2xl">{{ totalComments }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -38,18 +52,26 @@ export default {
     totalLikes: Number,
     body: String,
     index: Number,
+    dp: String,
+    author: String,
+    totalComments: Number,
   },
 }
 </script>
 
 <style scoped>
-.card {
-  /* min-width: 450px; */
-  max-width: 500px;
-  width: 100%;
-}
 .left {
   top: 50%;
   transform: translateY(-50%);
+}
+.read-more {
+  color: var(--c-pri);
+}
+.details {
+  bottom: 15px;
+  width: calc(100% - 70px);
+}
+.body {
+  margin-bottom: 15px;
 }
 </style>
