@@ -1,6 +1,8 @@
 <template>
   <div class="mt-24">
-    <h1>TechForum</h1>
+    <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">
+      Tech Forum
+    </h1>
     <div class="px-20 flex gap-20 flex-wrap justify-center pb-8">
       <div
         v-for="(post, i) in posts"
@@ -33,6 +35,7 @@
         />
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -65,7 +68,7 @@ export default {
           totalLikes: 27,
         },
         {
-          author: 'John Roy Calimlim',
+          author: 'Sarah Ford',
           authorProfile: '/images/avatars/3.svg',
           title: 'An Interactive Guide to Keyframe Animations',
           body: "CSS keyframe animations are incredibly flexible and powerful, but they’re also a bit weird. In this deep-dive tutorial, we'll learn how CSS keyframes work from the ground up, and see how to use them to build high-quality animations.",
@@ -76,7 +79,7 @@ export default {
           totalLikes: 88,
         },
         {
-          author: 'Sarah Ford',
+          author: 'John Ray',
           authorProfile: '/images/avatars/4.svg',
           title:
             'NanoPen 02 packs rugged durability in a small, tactical frame for minimalist EDC',
