@@ -1,30 +1,37 @@
 <template>
-  <div class="mt-24 px-20 flex gap-20 flex-wrap justify-center">
-    <div
-      v-for="(post, i) in posts"
-      :key="i"
-      class="
-        card
-        p-12
-        bg-gray-200
-        rounded-lg
-        flex
-        gap-4
-        relative
-        justify-center
-        align-center
-      "
-    >
-      <Post
-        :title="post.title"
-        :liked="post.liked"
-        :total-likes="post.totalLikes"
-        :disliked="post.disliked"
-        :body="post.body"
-        :index="i"
-        @up="up"
-        @down="down"
-      />
+  <div class="mt-24">
+    <h1>TechForum</h1>
+    <div class="px-20 flex gap-20 flex-wrap justify-center pb-8">
+      <div
+        v-for="(post, i) in posts"
+        :key="i"
+        class="
+          card
+          p-12
+          pb-20
+          bg-gray-200
+          rounded-lg
+          flex
+          gap-4
+          relative
+          justify-center
+          align-center
+        "
+      >
+        <Post
+          :title="post.title"
+          :liked="post.liked"
+          :total-likes="post.totalLikes"
+          :disliked="post.disliked"
+          :body="post.body"
+          :index="i"
+          :author="post.author"
+          :dp="post.authorProfile"
+          :total-comments="post.totalComments"
+          @up="up"
+          @down="down"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -109,9 +116,9 @@ export default {
 
 <style scoped>
 .card {
-  /* min-width: 450px; */
   max-width: 500px;
   width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 .left {
   top: 50%;
