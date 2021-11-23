@@ -1,5 +1,8 @@
 <template>
-  <form class="flex flex-col bg-blue-500 text-white rounded-lg py-8 px-12 mt-8">
+  <form
+    @submit="signup"
+    class="flex flex-col bg-blue-500 text-white rounded-lg py-8 px-12 mt-8"
+  >
     <div class="flex items-center flex-col">
       <h1 class="text-3xl">Welcome to TechZone</h1>
       <h3 class="text-l lowercase">CREATE AN ACCOUNT TO GET ONBOARD</h3>
@@ -33,6 +36,21 @@
     </h1>
   </form>
 </template>
+
+<script>
+export default {
+  data() {
+    return {}
+  },
+  methods: {
+    signup(e) {
+      e.preventDefault()
+      this.$router.push({ path: '/home' })
+    },
+  },
+}
+</script>
+
 <style scoped>
 input {
   background: #c4c4c4;
