@@ -35,7 +35,6 @@
 export default {
   watch: {
     $route() {
-      console.log(this.$route.path)
       if (this.$route.path !== '/') this.logged = true
       else this.logged = false
     },

@@ -4,9 +4,11 @@
       <div class="card mx-8 p-4 flex flex-col items-center">
         <img src="/images/gadgets/phones.svg" alt="mobile phones" />
         <h2 class="">Mobile Phones</h2>
-        <button class="shop-btn text-white rounded-lg px-4 py-2">
-          Shop Now
-        </button>
+        <NuxtLink to="/gadgets/phones">
+          <button class="shop-btn text-white rounded-lg px-4 py-2">
+            Shop Now
+          </button>
+        </NuxtLink>
       </div>
       <div class="card mx-8 p-4 flex flex-col items-center">
         <img src="/images/gadgets/tablets.svg" alt="mobile phones" />
