@@ -1,0 +1,51 @@
+<template>
+  <div>
+    <Navbar />
+    <div class="">
+      <Nuxt />
+    </div>
+  </div>
+</template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root {
+  --c-pri: #031b89;
+  --c-pri-light: #1e3ab8;
+  --c-accent: #b671e8;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--c-pri-light);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-pri);
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
