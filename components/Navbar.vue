@@ -8,7 +8,7 @@
         <NuxtLink to="/about">About</NuxtLink>
       </div>
     </div>
-    <img src="/images/cart.svg" alt="cart icon" class="w-12" />
+    <img src="/images/cart.svg" alt="cart icon" class="w-8" />
   </nav>
 </template>
 <style scoped>
