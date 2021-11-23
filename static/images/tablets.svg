@@ -6,16 +6,23 @@
     </h1>
     <div class="flex justify-center">
       <div class="flex gap-8">
-        <div
-          v-for="(laptop, i) in laptops"
-          :key="i"
-          class="card rounded-lg border border-2 border-black p-4"
-        >
-          <img :src="laptop.photo" />
+        <div class="card border border-2 border-black p-4">
+          <img src="/images/laptops/1.svg" />
           <h1 class="text-center font-extrabold text-2xl self-center">
-            {{ laptop.model }}
+            ACER Aspire 3 A314-22-R4U5
           </h1>
 
+          <button
+            class="view-btn uppercase text-white w-full py-2 rounded-lg mt-4"
+          >
+            view product
+          </button>
+        </div>
+        <div class="card border border-2 border-black p-4">
+          <img src="/images/laptops/2.svg" />
+          <h1 class="text-center font-extrabold text-2xl self-center">
+            ACER Aspire 3 A315-57G-59HR
+          </h1>
           <button
             class="view-btn uppercase text-white w-full py-2 rounded-lg mt-4"
           >
@@ -26,21 +33,6 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      laptops: [
-        { model: 'ACER Aspire 3 A314-22-R4U5', photo: '/images/laptops/1.svg' },
-        {
-          model: 'ACER Aspire 3 A315-57G-59HR',
-          photo: '/images/laptops/2.svg',
-        },
-      ],
-    }
-  },
-}
-</script>
 <style scoped>
 .view-btn {
   background: var(--c-pri);

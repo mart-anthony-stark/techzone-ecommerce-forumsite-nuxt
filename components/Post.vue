@@ -28,11 +28,12 @@
       <h3 class="body text-justify">{{ body }}</h3>
       <span class="read-more cursor-pointer underlined">Read More</span>
 
-      <div class="details flex justify-between absolute w-full">
-        <div class="flex">
+      <div class="details flex justify-between absolute w-full py-2">
+        <div class="flex items-end">
           <img :src="dp" class="w-12 mr-2" />
-          <span class="flex items-center gap-1">
-            <h1 class="text-blue-500 mr-2">{{ author }}</h1>
+          <span class="flex">
+            <h1 class="text-blue-500 mr-1">{{ author }}</h1>
+            <h3 class="text-gray-500 italic">• author</h3>
           </span>
         </div>
         <div class="flex items-center gap-2">
@@ -73,5 +74,8 @@ export default {
 }
 .body {
   margin-bottom: 15px;
+}
+.details {
+  border-top: 1px solid rgba(0, 0, 0, 0.7);
 }
 </style>
