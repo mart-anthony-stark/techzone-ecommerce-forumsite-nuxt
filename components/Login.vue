@@ -1,5 +1,8 @@
 <template>
-  <form class="flex flex-col bg-blue-500 text-white rounded-lg py-8 px-12">
+  <form
+    @submit="login"
+    class="flex flex-col bg-blue-500 text-white rounded-lg py-8 px-12"
+  >
     <div class="flex items-center flex-col">
       <h1 class="text-3xl">Welcome Back!</h1>
       <h3 class="text-l">we’re excited to see you again</h3>
@@ -32,6 +35,19 @@
     </h1>
   </form>
 </template>
+<script>
+export default {
+  data() {
+    return {}
+  },
+  methods: {
+    login(e) {
+      e.preventDefault()
+      this.$router.push({ path: '/home' })
+    },
+  },
+}
+</script>
 <style scoped>
 input {
   background: #c4c4c4;
