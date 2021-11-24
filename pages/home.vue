@@ -1,5 +1,6 @@
 <template>
   <div class="home mt-24">
+    <CreatePost v-if="createShown" @closeCreatePost="createShown = false" />
     <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">
       Tech Forum
     </h1>
@@ -22,7 +23,10 @@
     </div>
 
     <div class="mb-8 flex justify-end pr-20">
-      <button class="post-btn bg-pri rounded text-white extrbold px-6 py-2">
+      <button
+        @click="createShown = true"
+        class="post-btn bg-pri rounded text-white extrbold px-6 py-2"
+      >
         + Create new post
       </button>
     </div>
@@ -67,6 +71,7 @@
 export default {
   data() {
     return {
+      createShown: false,
       search: '',
       posts: [
         {
