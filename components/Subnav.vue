@@ -1,39 +1,38 @@
 <template>
-  <div class="subnav">
-    <NuxtLink to="/gadgets/phones">
-      <button class="link-btn text-white rounded-xl px-4 py-2">
-        Mobile Phones
-      </button></NuxtLink
-    >
-    <NuxtLink to="/gadgets/laptops">
-      <button class="link-btn text-white rounded-xl px-4 py-2">
-        Laptops
-      </button></NuxtLink
-    >
-    <NuxtLink to="/gadgets/tablets"
-      ><button class="link-btn text-white rounded-xl px-4 py-2">
-        Tablets
-      </button></NuxtLink
-    >
-    <NuxtLink to="/gadgets/accessories"
-      ><button class="link-btn text-white rounded-xl px-4 py-2">
-        Accessories
-      </button></NuxtLink
-    >
+  <div class="flex justify-center">
+    <div class="subnav mb-8">
+      <NuxtLink to="/gadgets/phones">
+        <button class="link-btn rounded-xl px-4 py-2">
+          Mobile Phones
+        </button></NuxtLink
+      >
+      <NuxtLink to="/gadgets/laptops">
+        <button class="link-btn rounded-xl px-4 py-2">Laptops</button></NuxtLink
+      >
+      <NuxtLink to="/gadgets/tablets"
+        ><button class="link-btn rounded-xl px-4 py-2">
+          Tablets
+        </button></NuxtLink
+      >
+      <NuxtLink to="/gadgets/accessories"
+        ><button class="link-btn rounded-xl px-4 py-2">
+          Accessories
+        </button></NuxtLink
+      >
+    </div>
   </div>
 </template>
 <script>
-export default {
-  watch: {
-    $route() {
-      const route = this.$route.split('/')[2]
-      console.log('route', route)
-    },
-  },
-}
+export default {}
 </script>
 <style scoped>
 .link-btn {
+  border: 2px solid var(--c-pri);
+  color: var(--c-pri);
+}
+.link-btn:hover {
+  border: 2px solid var(--c-pri);
   background: var(--c-pri);
+  color: white;
 }
 </style>
