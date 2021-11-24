@@ -51,7 +51,13 @@
               <img :src="product.image" class="w-8" />
               <h1 class="text-center">{{ product.model }}</h1>
             </li>
-            <button class="text-white text-center py-2 bg-pri">CHECKOUT</button>
+
+            <button
+              @click="gotoCheckout"
+              class="text-white text-center py-2 bg-pri w-full mt-4"
+            >
+              CHECKOUT
+            </button>
           </ul>
         </div>
       </div>
@@ -62,6 +68,15 @@
       >
         Logout
       </button>
+
+      <NuxtLink to="/"
+        ><button
+          v-if="!isLogged"
+          class="logout-btn uppercase px-4 py-2 rounded-lg"
+        >
+          Login
+        </button></NuxtLink
+      >
     </div>
   </nav>
 </template>
@@ -94,6 +109,10 @@ export default {
     logout() {
       this.$store.commit('auth/logout')
       this.$router.push({ path: '/' })
+    },
+    gotoCheckout() {
+      this.showCart = false
+      this.$router.push('/checkout')
     },
   },
   computed: {
