@@ -1,0 +1,117 @@
+<template>
+  <div class="checkout-page mt-24">
+    <h1 class="text-center text-5xl extrabold text-blue-500">Checkout</h1>
+    <div class="flex gap-24 justify-center mt-8 align-start">
+      <div class="shadow bg-gray-200 p-8 rounded-lg">
+        <h1 class="text-xl bold underline">My Cart</h1>
+        <div
+          v-for="(product, i) in products"
+          :key="i"
+          class="card flex pt-8 gap-4 mt-4 p-4 items-center relative"
+        >
+          <span class="text-xl absolute top-1 right-2">X</span>
+          <img :src="product.image" class="w-28" />
+          <div class="flex flex-col">
+            <h1 class="bold underline">{{ product.model }}</h1>
+            <h3>{{ product.priceStr }}</h3>
+            <div class="mt-4">
+              <span>Quantity:</span>
+              <button class="decr-btn p-2 rounded">-</button>
+              <span class="mx-2">{{ product.quantity }}</span>
+              <button class="incr-btn p-2 rounded">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="total-card shadow p-8 bg-gray-200 rounded-lg">
+        <h1 class="text-xl bold mb-4 underline">TOTAL</h1>
+        <div class="flex justify-between mb-4">
+          <h5>Sub-total</h5>
+          <span>₱ {{ formattedSubTotal }}</span>
+        </div>
+        <div class="flex justify-between mb-4">
+          <h5>Delivery</h5>
+          <span>0</span>
+        </div>
+        <select class="w-full p-2 bg-transparent">
+          <option value="standard" selected>Standard Delivery Charge</option>
+        </select>
+
+        <button class="bg-pri text-white w-full py-2 mt-4">CHECKOUT</button>
+        <img class="mt-8" src="/images/payment-gateways.png" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.checkout-page {
+  min-height: 100vh;
+}
+</style>
+
+<script>
+export default {
+  data() {
+    return {
+      products: [
+        {
+          model: 'APPLE iPhone 11',
+          image: '/images/phones/1.svg',
+          quantity: 1,
+          priceStr: '₱ 34,990.00',
+          price: 34990,
+        },
+        {
+          model: 'ACER Aspire 3 A315-57G-59HR',
+          image: '/images/laptops/2.svg',
+          quantity: 1,
+          priceStr: '₱ 37,999',
+          price: 37999,
+        },
+        {
+          model: 'AMAZON Fire HD 10"',
+          image: '/images/tablets/1.svg',
+          quantity: 1,
+          priceStr: '₱ 9,587.68',
+          price: 9587.68,
+        },
+      ],
+    }
+  },
+  computed: {
+    subTotal() {
+      return this.products.reduce((total, product) => total + product.price, 0)
+    },
+    formattedSubTotal() {
+      return this.subTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    },
+  },
+}
+</script>
+
+<style scoped>
+.shadow {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+.card {
+  border: 1px solid gray;
+}
+.decr-btn,
+.incr-btn {
+  border: 1px solid var(--c-pri);
+}
+.decr-btn:hover,
+.incr-btn:hover {
+  background: var(--c-pri);
+  color: white;
+}
+.total-card {
+  max-width: 300px;
+  width: 100%;
+  max-height: 350px;
+}
+select {
+  border: 1px solid black;
+}
+</style>
