@@ -38,15 +38,76 @@
         </NuxtLink>
       </div>
     </div>
-    <Footer />
+
+    <!-- SLIDER -->
+    <h1 class="text-blue-500 text-5xl mt-24 mb-12 text-center extrabold">
+      Featured Products
+    </h1>
+    <div class="flex gap-24 justify-around flex-wrap mb-24">
+      <div
+        v-for="(phone, i) in phones"
+        :key="i"
+        class="grid flex-col gap-4 w-60 place-items-center justify-center"
+      >
+        <img :src="phone.photo" class="h-60" />
+        <h1 class="extrabold">{{ phone.model }}</h1>
+        <button
+          class="product-btn bg-pri text-white py-2 rounded w-full w-inherit"
+        >
+          VIEW PRODUCT
+        </button>
+      </div>
+      <div
+        v-for="(tablet, i) in tablets"
+        :key="i"
+        class="grid flex-col gap-4 w-60 place-items-center justify-end"
+      >
+        <img :src="tablet.photo" class="h-60" />
+        <h1 class="extrabold">{{ tablet.model }}</h1>
+        <button
+          class="product-btn bg-pri text-white py-2 rounded w-full w-inherit"
+        >
+          VIEW PRODUCT
+        </button>
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {}
+  },
+  computed: {
+    laptops() {
+      return this.$store.state.products.laptops
+    },
+    phones() {
+      return this.$store.state.products.phones
+    },
+    tablets() {
+      return this.$store.state.products.tablets
+    },
+    accessories() {
+      return this.$store.state.products.accessories
+    },
+  },
+}
+</script>
+
 <style scoped>
 .shop-btn {
   background: var(--c-pri);
 }
+.shop-btn:hover {
+  background: var(--c-accent);
+}
 .card {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   border-radius: 25px;
+}
+.product-btn {
+  width: inherit;
 }
 </style>
