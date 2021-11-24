@@ -10,7 +10,6 @@
       fixed
       top-0
       w-full
-      z-50
     "
   >
     <div class="flex gap-24 items-center">
@@ -76,7 +75,7 @@ export default {
         {
           model: 'APPLE iPhone 11',
           image: '/images/phones/1.svg',
-          quantity: 2,
+          quantity: 1,
         },
         {
           model: 'ACER Aspire 3 A315-57G-59HR',
@@ -118,6 +117,7 @@ export default {
 <style scoped>
 nav {
   background: var(--c-pri);
+  z-index: 100;
 }
 .navlink:hover {
   color: var(--c-accent);
