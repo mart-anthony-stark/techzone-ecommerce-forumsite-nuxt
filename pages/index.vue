@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 items-center min-h-screen">
+  <div class="mt-4 grid grid-cols-2 items-center min-h-screen">
     <div class="flex flex-col items-center justify-center">
       <img :src="displaySvg" class="w-3/5" />
       <div>
