@@ -54,7 +54,7 @@ export default {
 
 <style scoped>
 input {
-  background: #c4c4c4;
+  background: #f3f3f3;
 }
 input::placeholder {
   color: black;
