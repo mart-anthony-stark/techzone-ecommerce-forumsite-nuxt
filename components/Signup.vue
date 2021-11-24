@@ -45,6 +45,7 @@ export default {
   methods: {
     signup(e) {
       e.preventDefault()
+      this.$store.commit('auth/login')
       this.$router.push({ path: '/home' })
     },
   },
