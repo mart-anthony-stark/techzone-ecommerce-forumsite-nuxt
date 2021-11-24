@@ -22,27 +22,84 @@
       </div>
     </div>
     <div class="flex gap-8">
-      <img src="/images/cart.svg" alt="cart icon" class="w-8" />
-      <NuxtLink to="/" v-if="logged"
-        ><button class="logout-btn uppercase px-4 py-2 rounded-lg">
-          Logout
-        </button></NuxtLink
+      <div class="cart" v-if="isLogged">
+        <button class="cart-btn" @click="showCart = !showCart">
+          <img src="/images/cart.svg" alt="cart icon" class="w-8" />
+        </button>
+        <span
+          class="total-quantity bg-blue-500 flex items-center justify-center"
+          >{{ totalQuantity }}</span
+        >
+        <div class="cart-dropdown" v-if="showCart">
+          <ul>
+            <li
+              v-for="(product, i) in cart"
+              :key="i"
+              class="flex flex-col items-center"
+            >
+              <img :src="product.image" class="w-8" />
+              <h1 class="text-center">{{ product.model }}</h1>
+            </li>
+            <button class="text-white text-center py-2 bg-pri">CHECKOUT</button>
+          </ul>
+        </div>
+      </div>
+      <button
+        class="logout-btn uppercase px-4 py-2 rounded-lg"
+        @click="logout"
+        v-if="isLogged"
       >
+        Logout
+      </button>
     </div>
   </nav>
 </template>
 <script>
 export default {
-  watch: {
-    $route() {
-      if (this.$route.path !== '/') this.logged = true
-      else this.logged = false
-    },
-  },
   data() {
     return {
       logged: true,
+      showCart: false,
+      products: [
+        {
+          model: 'APPLE iPhone 11',
+          image: '/images/phones/1.svg',
+          quantity: 2,
+        },
+        {
+          model: 'ACER Aspire 3 A315-57G-59HR',
+          image: '/images/laptops/2.svg',
+          quantity: 1,
+        },
+        {
+          model: 'AMAZON Fire HD 10"',
+          image: '/images/tablets/1.svg',
+          quantity: 1,
+        },
+      ],
     }
+  },
+  methods: {
+    logout() {
+      this.$store.commit('auth/logout')
+      this.$router.push({ path: '/' })
+    },
+  },
+  computed: {
+    isLogged() {
+      return this.$store.state.auth.isLogged
+    },
+    cart() {
+      return this.products.filter((product) => {
+        return product.quantity > 0
+      })
+    },
+    totalQuantity() {
+      return this.products.reduce(
+        (total, product) => total + product.quantity,
+        0
+      )
+    },
   },
 }
 </script>
@@ -52,5 +109,42 @@ nav {
 }
 .logout-btn {
   background: var(--c-accent);
+}
+/* CART */
+.cart {
+  position: relative;
+}
+.cart .cart-btn {
+  cursor: pointer;
+  padding: 3px;
+  font-size: 25px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+}
+.total-quantity {
+  position: absolute;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  right: -15px;
+  top: -5px;
+}
+.cart-dropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-size: 1.2rem;
+  padding: 1rem 1rem;
+  right: 0;
+  min-width: 20rem;
+  overflow: auto;
+}
+.cart-dropdown ul {
+  display: flex;
+  flex-direction: column;
 }
 </style>
