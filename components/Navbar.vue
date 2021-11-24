@@ -16,9 +16,21 @@
     <div class="flex gap-24 items-center">
       <img src="/images/logo.svg" alt="TechZone Logo" class="w-32" />
       <div class="links flex gap-12">
-        <NuxtLink to="/home">Home</NuxtLink>
-        <NuxtLink to="/shop">Shop</NuxtLink>
-        <NuxtLink to="/about">About</NuxtLink>
+        <NuxtLink to="/home"
+          ><button class="navlink hover:border-b hover:border-blue-400">
+            Home
+          </button></NuxtLink
+        >
+        <NuxtLink to="/shop"
+          ><button class="navlink hover:border-b hover:border-blue-400">
+            Shop
+          </button></NuxtLink
+        >
+        <NuxtLink to="/about"
+          ><button class="navlink hover:border-b hover:border-blue-400">
+            About
+          </button></NuxtLink
+        >
       </div>
     </div>
     <div class="flex gap-8">
@@ -106,6 +118,9 @@ export default {
 <style scoped>
 nav {
   background: var(--c-pri);
+}
+.navlink:hover {
+  color: var(--c-accent);
 }
 .logout-btn {
   background: var(--c-accent);
