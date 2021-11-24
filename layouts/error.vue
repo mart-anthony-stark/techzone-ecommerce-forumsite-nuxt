@@ -16,7 +16,11 @@
         Oops! Something went wrong
       </h1>
       <div>
-        <NuxtLink to="/"><button class="text-gray-400 text-xl mt-4 underline">Go back to Home</button></NuxtLink>
+        <NuxtLink to="/home"
+          ><button class="text-gray-400 text-xl mt-4 underline">
+            Go back to Home
+          </button></NuxtLink
+        >
       </div>
     </div>
   </div>
