@@ -3,7 +3,7 @@
     <div class="grid grid-cols-2 grid-rows-2 gap-4 py-4">
       <div class="card mx-8 p-4 flex flex-col items-center">
         <img src="/images/gadgets/phones.svg" alt="mobile phones" />
-        <h2 class="">Mobile Phones</h2>
+        <h2 class="text-blue-500 text-2xl mb-2">Mobile Phones</h2>
         <NuxtLink to="/gadgets/phones">
           <button class="shop-btn text-white rounded-lg px-4 py-2">
             Shop Now
@@ -12,7 +12,7 @@
       </div>
       <div class="card mx-8 p-4 flex flex-col items-center">
         <img src="/images/gadgets/tablets.svg" alt="mobile phones" />
-        <h2 class="">Tablets</h2>
+        <h2 class="text-blue-500 text-2xl mb-2">Tablets</h2>
         <NuxtLink to="/gadgets/tablets">
           <button class="shop-btn text-white rounded-lg px-4 py-2">
             Shop Now
@@ -21,7 +21,7 @@
       </div>
       <div class="card mx-8 p-4 flex flex-col items-center">
         <img src="/images/gadgets/laptops.svg" alt="mobile phones" />
-        <h2 class="">Laptops</h2>
+        <h2 class="text-blue-500 text-2xl mb-2">Laptops</h2>
         <NuxtLink to="/gadgets/laptops">
           <button class="shop-btn text-white rounded-lg px-4 py-2">
             Shop Now
@@ -30,7 +30,7 @@
       </div>
       <div class="card mx-8 p-4 flex flex-col items-center">
         <img src="/images/gadgets/accessories.svg" alt="mobile phones" />
-        <h2 class="">Accessories</h2>
+        <h2 class="text-blue-500 text-2xl mb-2">Accessories</h2>
         <NuxtLink to="/gadgets/accessories">
           <button class="shop-btn text-white rounded-lg px-4 py-2">
             Shop Now
