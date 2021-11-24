@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'techzen-poc',
+    title: 'TechZone POC',
     htmlAttrs: {
       lang: 'en'
     },
