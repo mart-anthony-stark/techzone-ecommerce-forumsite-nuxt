@@ -1,6 +1,7 @@
+import { mapMutations } from 'vuex';
 <template>
   <form
-    @submit="login"
+    @submit="handleLogin"
     class="flex flex-col bg-blue-500 text-white rounded-lg py-8 px-12"
   >
     <div class="flex items-center flex-col">
@@ -41,8 +42,9 @@ export default {
     return {}
   },
   methods: {
-    login(e) {
+    handleLogin(e) {
       e.preventDefault()
+      this.$store.commit('auth/login')
       this.$router.push({ path: '/home' })
     },
   },
