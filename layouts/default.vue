@@ -34,6 +34,9 @@ export default {}
 body {
   font-family: 'Roboto', sans-serif;
 }
+.bg-pri {
+  background: var(--c-pri);
+}
 .bounce-enter-active {
   animation: bounce-in 0.5s;
 }
