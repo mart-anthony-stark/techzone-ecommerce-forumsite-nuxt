@@ -43,7 +43,7 @@
     <h1 class="text-blue-500 text-5xl mt-24 mb-12 text-center extrabold">
       Featured Products
     </h1>
-    <div class="flex gap-24 justify-around flex-wrap mb-24">
+    <div class="flex gap-24 justify-around flex-wrap mb-24 px-8">
       <div
         v-for="(phone, i) in phones"
         :key="i"
