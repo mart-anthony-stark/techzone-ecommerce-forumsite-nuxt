@@ -17,7 +17,10 @@
               {{ phone.model }}
             </h1>
           </div>
-          <button class="view-btn uppercase text-white w-full py-2 rounded-lg">
+          <button
+            @click="$router.push(`/phone/${i}`)"
+            class="view-btn uppercase text-white w-full py-2 rounded-lg"
+          >
             view product
           </button>
         </div>
@@ -27,16 +30,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      phones: [
-        { model: 'APPLE iPhone 11', photo: '/images/phones/1.svg' },
-        {
-          model: 'SAMSUNG Galaxy A72',
-          photo: '/images/phones/2.svg',
-        },
-      ],
-    }
+  computed: {
+    phones() {
+      return this.$store.state.products.phones
+    },
   },
 }
 </script>

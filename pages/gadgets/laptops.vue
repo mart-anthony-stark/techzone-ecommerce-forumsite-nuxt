@@ -17,6 +17,7 @@
           </h1>
 
           <button
+            @click="$router.push(`/laptop/${i}`)"
             class="view-btn uppercase text-white w-full py-2 rounded-lg mt-4"
           >
             view product
@@ -28,16 +29,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      laptops: [
-        { model: 'ACER Aspire 3 A314-22-R4U5', photo: '/images/laptops/1.svg' },
-        {
-          model: 'ACER Aspire 3 A315-57G-59HR',
-          photo: '/images/laptops/2.svg',
-        },
-      ],
-    }
+  computed: {
+    laptops() {
+      return this.$store.state.products.laptops
+    },
   },
 }
 </script>

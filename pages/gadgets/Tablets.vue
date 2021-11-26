@@ -17,6 +17,7 @@
           </h1>
 
           <button
+            @click="$router.push(`/tablet/${i}`)"
             class="view-btn uppercase text-white w-full py-2 rounded-lg mt-4"
           >
             view product
@@ -28,16 +29,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      tablets: [
-        { model: 'AMAZON Fire HD 10"', photo: '/images/tablets/1.svg' },
-        {
-          model: 'APPLE iPad 8 10.2" (2020) Wi-Fi',
-          photo: '/images/tablets/2.svg',
-        },
-      ],
-    }
+  computed: {
+    tablets() {
+      return this.$store.state.products.tablets
+    },
   },
 }
 </script>
