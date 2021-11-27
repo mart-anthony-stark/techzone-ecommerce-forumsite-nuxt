@@ -39,7 +39,7 @@
         </button>
         <span
           class="total-quantity bg-blue-500 flex items-center justify-center"
-          >{{ totalQuantity }}</span
+          >{{ cart.length }}</span
         >
         <div class="cart-dropdown" v-if="showCart">
           <ul>
@@ -48,7 +48,7 @@
               :key="i"
               class="flex flex-col items-center"
             >
-              <img :src="product.image" class="w-8" />
+              <img :src="product.photo" class="w-8" />
               <h1 class="text-center">{{ product.model }}</h1>
             </li>
 
@@ -56,7 +56,7 @@
               @click="gotoCheckout"
               class="text-white text-center py-2 bg-pri w-full mt-4"
             >
-              CHECKOUT
+              GOTO CART
             </button>
           </ul>
         </div>
@@ -86,23 +86,6 @@ export default {
     return {
       logged: true,
       showCart: false,
-      products: [
-        {
-          model: 'APPLE iPhone 11',
-          image: '/images/phones/1.svg',
-          quantity: 1,
-        },
-        {
-          model: 'ACER Aspire 3 A315-57G-59HR',
-          image: '/images/laptops/2.svg',
-          quantity: 1,
-        },
-        {
-          model: 'AMAZON Fire HD 10"',
-          image: '/images/tablets/1.svg',
-          quantity: 1,
-        },
-      ],
     }
   },
   methods: {
@@ -120,15 +103,7 @@ export default {
       return this.$store.state.auth.isLogged
     },
     cart() {
-      return this.products.filter((product) => {
-        return product.quantity > 0
-      })
-    },
-    totalQuantity() {
-      return this.products.reduce(
-        (total, product) => total + product.quantity,
-        0
-      )
+      return this.$store.state.cart.cart
     },
   },
 }
