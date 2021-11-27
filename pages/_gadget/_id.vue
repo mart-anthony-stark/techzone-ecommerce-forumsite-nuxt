@@ -1,9 +1,24 @@
 <template>
   <div class="mt-24">
-    <div @click="$router.go(-1)">Back</div>
+    <div
+      @click="$router.go(-1)"
+      class="
+        flex
+        ml-8
+        gap-2
+        text-blue-500
+        items-center
+        cursor-pointer
+        extrabold
+      "
+    >
+      <img src="/images/icons/back.svg" />
+      <h1>Back</h1>
+    </div>
+
     <div class="card">
       <img :src="item.photo" />
-      {{ item.model }}
+      <h1 class="text-xl extrabold">{{ item.model }}</h1>
     </div>
   </div>
 </template>
@@ -20,11 +35,6 @@ export default {
   },
   data() {
     return {}
-  },
-  beforeCreate() {
-    // const paths = this.$route.path.split('/').filter((p) => p !== '')
-    // console.log(this.$store.state.products.laptops)
-    // this.item = this.$store.state.products[paths[0]]
   },
 }
 </script>
