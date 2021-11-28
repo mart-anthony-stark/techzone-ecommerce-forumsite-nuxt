@@ -118,6 +118,8 @@ nav {
 }
 .logout-btn {
   background: var(--c-accent);
+  color: white !important;
+  border: none !important;
 }
 /* CART */
 .cart {
@@ -155,5 +157,14 @@ nav {
 .cart-dropdown ul {
   display: flex;
   flex-direction: column;
+}
+
+a.nuxt-link-active[href='/'] {
+  border: none !important;
+}
+a.nuxt-link-active {
+  font-weight: bolder;
+  border-bottom: 2px solid var(--c-accent);
+  color: var(--c-accent);
 }
 </style>
