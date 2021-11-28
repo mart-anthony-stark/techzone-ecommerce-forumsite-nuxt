@@ -35,4 +35,8 @@ export default {}
   background: var(--c-pri);
   color: white;
 }
+a.nuxt-link-active button {
+  color: white !important;
+  background: var(--c-pri) !important;
+}
 </style>
