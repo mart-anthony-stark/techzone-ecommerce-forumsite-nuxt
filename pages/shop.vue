@@ -45,8 +45,8 @@
     </h1>
     <div class="flex gap-24 justify-around flex-wrap mb-24 px-8">
       <div
-        v-for="(phone, i) in phones"
-        :key="i"
+        v-for="phone in phones"
+        :key="phone.model"
         class="grid flex-col gap-4 w-60 place-items-center justify-center"
       >
         <img :src="phone.photo" class="h-60" />
@@ -58,8 +58,8 @@
         </button>
       </div>
       <div
-        v-for="(tablet, i) in tablets"
-        :key="i"
+        v-for="tablet in tablets"
+        :key="tablet.model"
         class="grid flex-col gap-4 w-60 place-items-center justify-end"
       >
         <img :src="tablet.photo" class="h-60" />
