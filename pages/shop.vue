@@ -1,5 +1,8 @@
 <template>
   <div class="mt-24">
+    <h1 class="text-blue-500 text-5xl mt-24 mb-12 text-center extrabold">
+      Tech Shop
+    </h1>
     <div class="grid grid-cols-2 grid-rows-2 gap-4 py-4">
       <div class="card mx-8 p-4 flex flex-col items-center">
         <img src="/images/gadgets/phones.svg" alt="mobile phones" />
@@ -45,26 +48,28 @@
     </h1>
     <div class="flex gap-24 justify-around flex-wrap mb-24 px-8">
       <div
-        v-for="phone in phones"
+        v-for="(phone, i) in phones"
         :key="phone.model"
         class="grid flex-col gap-4 w-60 place-items-center justify-center"
       >
         <img :src="phone.photo" class="h-60" />
         <h1 class="extrabold">{{ phone.model }}</h1>
         <button
+          @click="$router.push(`/phone/${i}`)"
           class="product-btn bg-pri text-white py-2 rounded w-full w-inherit"
         >
           VIEW PRODUCT
         </button>
       </div>
       <div
-        v-for="tablet in tablets"
+        v-for="(tablet, i) in tablets"
         :key="tablet.model"
         class="grid flex-col gap-4 w-60 place-items-center justify-end"
       >
         <img :src="tablet.photo" class="h-60" />
         <h1 class="extrabold">{{ tablet.model }}</h1>
         <button
+          @click="$router.push(`/tablet/${i}`)"
           class="product-btn bg-pri text-white py-2 rounded w-full w-inherit"
         >
           VIEW PRODUCT
