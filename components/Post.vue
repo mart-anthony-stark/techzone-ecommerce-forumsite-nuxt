@@ -25,7 +25,10 @@
     </div>
     <div class="right text-center w-full">
       <h1 class="text-center font-extrabold text-l mb-12">{{ title }}</h1>
-      <h3 class="body text-justify">{{ body }}</h3>
+
+      <h3 v-if="body.length < 250" class="body text-justify">{{ body }}</h3>
+      <h3 v-else class="body text-justify">{{ body.substring(0, 250) }}...</h3>
+
       <span class="read-more cursor-pointer underlined">Read More</span>
 
       <div class="details flex justify-between absolute w-full py-2">
