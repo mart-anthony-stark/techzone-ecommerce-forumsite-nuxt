@@ -38,6 +38,9 @@ body {
 .bg-pri {
   background: var(--c-pri);
 }
+.section {
+  min-height: 100vh;
+}
 .bounce-enter-active {
   animation: bounce-in 0.5s;
 }
