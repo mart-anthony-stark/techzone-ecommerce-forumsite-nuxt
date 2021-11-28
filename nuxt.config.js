@@ -31,6 +31,15 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
 
+  router: {
+    middleware: 'auth',
+  },
+
+  loading: {
+    color: 'blue',
+    height: '5px',
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
 
