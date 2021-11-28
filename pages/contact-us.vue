@@ -4,7 +4,7 @@
       Contact Us
     </h1>
     <div class="flex gap-4 justify-center">
-      <form class="p-4 py-8">
+      <form @submit="submitForm" class="p-4 py-8">
         <div class="grid grid-cols-2 gap-2">
           <div>
             <label for="fname"
@@ -56,9 +56,21 @@
 
         <button class="bg-pri text-white py-2 w-full mt-4">Send Message</button>
       </form>
+
+      <div></div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    submitForm(e) {
+      e.preventDefault()
+    },
+  },
+}
+</script>
 
 <style scoped>
 form {
