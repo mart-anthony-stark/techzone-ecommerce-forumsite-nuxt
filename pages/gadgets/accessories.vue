@@ -49,4 +49,5 @@ export default {
 .view-btn {
   background: var(--c-pri);
 }
+
 </style>
