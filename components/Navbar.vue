@@ -25,9 +25,9 @@
             Shop
           </button></NuxtLink
         >
-        <NuxtLink to="/about"
+        <NuxtLink to="/contact-us"
           ><button class="navlink hover:border-b hover:border-blue-400">
-            About
+            Contact us
           </button></NuxtLink
         >
       </div>
