@@ -1,5 +1,14 @@
 <template>
   <div class="mt-24">
+    <transition name="slide-fade">
+      <div
+        v-show="showNotification"
+        class="notification text-white px-4 py-2 fixed bottom-18 z-10 rounded"
+      >
+        {{ notification }}
+      </div>
+    </transition>
+
     <div
       @click="$router.go(-1)"
       class="
@@ -18,6 +27,7 @@
 
     <div class="container grid grid-cols-2 place-items-center">
       <img :src="item.photo" />
+
       <div class="card p-12 pl-0">
         <h1 class="text-xl extrabold">{{ item.model }}</h1>
         <h3>{{ item.priceStr }}</h3>
@@ -54,19 +64,48 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      notification: 'Item already added to cart',
+      showNotification: false,
+    }
   },
   methods: {
     addThis() {
       const exist = this.cartItems.find((el) => el.model === this.item.model)
 
-      if (!this.isAuth) return
-      if (exist) {
-        console.log('already in cart')
-      } else {
-        this.$store.commit('cart/addToCart', this.item)
-      }
+      if (!this.isAuth) {
+        this.notification = 'You are currently logged out. Please login first'
+      } else this.notification = 'Item already added to cart'
+
+      if (!exist && this.isAuth) this.$store.commit('cart/addToCart', this.item)
+
+      this.showNotification = true
+      setTimeout(() => {
+        this.showNotification = false
+      }, 1500)
     },
   },
 }
 </script>
+
+<style scoped>
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.notification {
+  background: var(--c-accent);
+  left: 50%;
+  transform: translateX(-50%);
+}
+</style>
