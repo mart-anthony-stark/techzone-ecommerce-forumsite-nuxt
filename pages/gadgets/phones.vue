@@ -5,7 +5,7 @@
       PHONES
     </h1>
     <div class="flex justify-center">
-      <div class="flex gap-8">
+      <div class="flex gap-8 p-8">
         <div
           v-for="(phone, i) in phones"
           :key="i"
