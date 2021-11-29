@@ -51,7 +51,9 @@
               <img :src="product.photo" class="w-8" />
               <h1 class="text-center">{{ product.model }}</h1>
             </li>
-
+            <h2 v-if="cart.length === 0" class="text-center font-extrabold">
+              Your cart is empty
+            </h2>
             <button
               @click="gotoCheckout"
               class="text-white text-center py-2 bg-pri w-full mt-4"
