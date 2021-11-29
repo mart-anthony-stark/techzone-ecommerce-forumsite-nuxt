@@ -44,6 +44,10 @@
         </button>
       </div>
     </div>
+
+    <div class="mt-4">
+      <StarRate />
+    </div>
   </div>
 </template>
 
