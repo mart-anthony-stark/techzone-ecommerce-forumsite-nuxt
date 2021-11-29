@@ -5,6 +5,12 @@
       <div class="shadow bg-gray-200 p-8 rounded-lg">
         <h1 class="text-xl bold underline">My Cart</h1>
         <div
+          v-if="products.length === 0"
+          class="text-center font-extrabold text-xl"
+        >
+          You have no items in cart
+        </div>
+        <div
           v-for="(product, i) in products"
           :key="i"
           class="card flex pt-8 gap-4 mt-4 p-4 items-center relative"
@@ -34,7 +40,9 @@
           <span>0</span>
         </div>
         <select class="w-full p-2 bg-transparent">
-          <option value="standard" selected>Standard Delivery Charge</option>
+          <option value="standard" class="p-4" selected>
+            Standard Delivery Charge
+          </option>
         </select>
 
         <button class="bg-pri text-white w-full py-2 mt-4">CHECKOUT</button>
@@ -48,38 +56,20 @@
 .checkout-page {
   min-height: 100vh;
 }
+option {
+  padding: 5px;
+}
 </style>
 
 <script>
 export default {
   data() {
-    return {
-      products: [
-        {
-          model: 'APPLE iPhone 11',
-          image: '/images/phones/1.svg',
-          quantity: 1,
-          priceStr: '₱ 34,990.00',
-          price: 34990,
-        },
-        {
-          model: 'ACER Aspire 3 A315-57G-59HR',
-          image: '/images/laptops/2.svg',
-          quantity: 1,
-          priceStr: '₱ 37,999',
-          price: 37999,
-        },
-        {
-          model: 'AMAZON Fire HD 10"',
-          image: '/images/tablets/1.svg',
-          quantity: 1,
-          priceStr: '₱ 9,587.68',
-          price: 9587.68,
-        },
-      ],
-    }
+    return {}
   },
   computed: {
+    products() {
+      return this.$store.state.cart.cart
+    },
     subTotal() {
       return this.products.reduce((total, product) => total + product.price, 0)
     },
