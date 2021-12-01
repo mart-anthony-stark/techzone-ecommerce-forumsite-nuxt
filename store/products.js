@@ -3,6 +3,7 @@ export const state = () => ({
     {
       model: 'APPLE iPhone 11',
       photo: '/images/phones/1.svg',
+      rating: 4,
       priceStr: '₱ 34,990.00',
       price: 34990.0,
       specs: ['4GB RAM', '64/128/256GB ROM', 'A13 Bionic', '4G Hexa Core'],
@@ -12,6 +13,7 @@ export const state = () => ({
     {
       model: 'SAMSUNG Galaxy A72',
       photo: '/images/phones/2.svg',
+      rating: 5,
       priceStr: '₱ 23,990.00',
       price: 23990.0,
       specs: ['6.7-inch Screen', '8GB RAM', '256GB Storage'],
@@ -22,6 +24,7 @@ export const state = () => ({
     {
       model: 'ACER Aspire 3 A314-22-R4U5',
       photo: '/images/laptops/1.svg',
+      rating: 4,
       priceStr: '₱ 26,999.00',
       price: 26999.0,
       specs: [
@@ -39,6 +42,7 @@ export const state = () => ({
     {
       model: 'ACER Aspire 3 A315-57G-59HR',
       photo: '/images/laptops/2.svg',
+      rating: 3,
       priceStr: '₱ 37,999',
       price: 37999.0,
       specs: [
@@ -54,6 +58,7 @@ export const state = () => ({
     {
       model: 'AMAZON Fire HD 10"',
       photo: '/images/tablets/1.svg',
+      rating: 4,
       priceStr: '₱ 9,587.68',
       price: 9587.68,
       specs: [
@@ -69,6 +74,7 @@ export const state = () => ({
     {
       model: 'APPLE iPad 8 10.2" (2020) Wi-Fi',
       photo: '/images/tablets/2.svg',
+      rating: 5,
       priceStr: '₱ 19,990.00',
       price: 19990.0,
       specs: [
@@ -86,6 +92,7 @@ export const state = () => ({
     {
       model: 'ANKER SoundCore Space NC B2B',
       photo: '/images/accessories/1.svg',
+      rating: 5,
       priceStr: '₱ 7,995.00',
       price: 7995.0,
       specs: ['40 mm drivers'],
@@ -95,6 +102,7 @@ export const state = () => ({
     {
       model: 'DELUX M556BU Entry Level Gaming Mouse Cool Light',
       photo: '/images/accessories/2.svg',
+      rating: 4,
       priceStr: '₱ 899.00',
       price: 899.0,
       specs: ['HXSJ T90', '3 Modes BT', '3.0 + 5.0 + 2.4G'],
