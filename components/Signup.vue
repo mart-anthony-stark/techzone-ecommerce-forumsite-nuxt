@@ -8,17 +8,48 @@
       <h3 class="text-l lowercase">CREATE AN ACCOUNT TO GET ONBOARD</h3>
     </div>
     <div class="field flex flex-col gap-4 pt-8">
-      <input
-        class="rounded text-black p-2"
-        type="text"
-        placeholder="Username"
-      />
-      <input class="rounded text-black p-2" type="text" placeholder="Email" />
-      <input
-        class="rounded text-black p-2"
-        type="password"
-        placeholder="Password"
-      />
+      <div class="w-full rounded text-black p-2 relative">
+        <p
+          v-if="errors.name !== ''"
+          class="error text-white rounded p-2 absolute"
+        >
+          {{ errors.name }}<span></span>
+        </p>
+        <input
+          v-model="name"
+          class="w-full rounded text-black p-2"
+          type="text"
+          placeholder="Username"
+        />
+      </div>
+      <div class="w-full rounded text-black p-2 relative">
+        <p
+          v-if="errors.email !== ''"
+          class="error text-white rounded p-2 absolute"
+        >
+          {{ errors.email }}<span></span>
+        </p>
+        <input
+          v-model="email"
+          class="w-full rounded text-black p-2"
+          type="text"
+          placeholder="Email"
+        />
+      </div>
+      <div class="w-full rounded text-black p-2 relative">
+        <p
+          v-if="errors.password !== ''"
+          class="error text-white rounded p-2 absolute"
+        >
+          {{ errors.password }}<span></span>
+        </p>
+        <input
+          v-model="password"
+          class="w-full rounded text-black p-2"
+          type="text"
+          placeholder="Password"
+        />
+      </div>
     </div>
     <span class="pt-2 cursor-pointer">Forgot Password</span>
     <button class="uppercase text-white w-full py-2 mt-4">signup</button>
@@ -40,7 +71,16 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      name: '',
+      email: '',
+      password: '',
+      errors: {
+        name: '',
+        email: '',
+        password: '',
+      },
+    }
   },
   methods: {
     signup(e) {
