@@ -31,6 +31,9 @@
       <div class="card p-12 pl-0">
         <h1 class="text-xl extrabold">{{ item.model }}</h1>
         <h3>{{ item.priceStr }}</h3>
+        <div class="flex stars">
+          <fa v-for="star in item.rating" :key="star" icon="star" />
+        </div>
         <p class="mt-8">{{ item.description }}</p>
         <div class="mt-6">
           <h2 class="text-blue-500 text-lg">Specifications:</h2>
@@ -45,9 +48,9 @@
       </div>
     </div>
 
-    <div class="mt-4">
+    <!-- <div class="mt-4">
       <StarRate />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -111,5 +114,9 @@ export default {
   background: var(--c-accent);
   left: 50%;
   transform: translateX(-50%);
+}
+
+.stars {
+  color: rgb(224, 83, 28);
 }
 </style>
