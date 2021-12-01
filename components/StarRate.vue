@@ -44,11 +44,11 @@
 
 .star-widget input:not(:checked) ~ label:hover,
 .star-widget input:not(:checked) ~ label:hover ~ label {
-  color: #fd4;
+  color: rgb(224, 83, 28);
 }
 
 input:checked ~ label {
-  color: #fd4;
-  text-shadow: 0 0 5px #fd4;
+  color: rgb(224, 83, 28);
+  text-shadow: 0 0 5px rgb(224, 83, 28);
 }
 </style>
