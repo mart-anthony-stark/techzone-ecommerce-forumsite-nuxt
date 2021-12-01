@@ -46,7 +46,7 @@
         <input
           v-model="password"
           class="w-full rounded text-black p-2"
-          type="text"
+          type="password"
           placeholder="Password"
         />
       </div>
@@ -85,8 +85,23 @@ export default {
   methods: {
     signup(e) {
       e.preventDefault()
-      this.$store.commit('auth/login')
-      this.$router.push({ path: '/home' })
+      if (this.name === '') this.errors.name = 'Username is required.'
+      else this.errors.name = ''
+
+      if (this.email === '') this.errors.email = 'Email is required.'
+      else this.errors.email = ''
+
+      if (this.password === '') this.errors.password = 'Password is required.'
+      else this.errors.password = ''
+
+      this.success =
+        this.errors.email === '' &&
+        this.errors.password === '' &&
+        this.errors.name === ''
+      if (this.success) {
+        this.$store.commit('auth/login')
+        this.$router.push({ path: '/home' })
+      }
     },
   },
 }
@@ -105,5 +120,19 @@ input::placeholder {
 button {
   border-radius: 25px;
   background: var(--c-pri);
+}
+.error {
+  background: rgb(214, 46, 46);
+  top: -30px;
+  right: 10px;
+}
+.error span {
+  position: absolute;
+  right: 10px;
+  bottom: -7px;
+  height: 15px;
+  width: 15px;
+  background: rgb(214, 46, 46);
+  transform: rotate(45deg);
 }
 </style>
