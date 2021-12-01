@@ -1,6 +1,7 @@
 export const state = () => ({
   posts: [
     {
+      id: 1,
       author: 'Melinda Gates',
       authorProfile: '/images/avatars/1.svg',
       title: 'High-Speed Internet Connection is Coming to Remote Areas',
@@ -12,7 +13,8 @@ export const state = () => ({
       totalLikes: 56,
     },
     {
-      author: 'John Roy Calimlim',
+      id: 2,
+      author: 'John Roven',
       authorProfile: '/images/avatars/2.svg',
       title:
         'Arista, Cisco, Huawei, Juniper Networks, and Nokia Launch New MANRS Equipment Vendor Program to Improve Routing Security Worldwide',
@@ -24,6 +26,7 @@ export const state = () => ({
       totalLikes: 27,
     },
     {
+      id: 3,
       author: 'Sarah Ford',
       authorProfile: '/images/avatars/3.svg',
       title: 'An Interactive Guide to Keyframe Animations',
@@ -35,6 +38,7 @@ export const state = () => ({
       totalLikes: 88,
     },
     {
+      id: 4,
       author: 'John Ray',
       authorProfile: '/images/avatars/4.svg',
       title:
