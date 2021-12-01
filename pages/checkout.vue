@@ -16,7 +16,7 @@
           class="card flex pt-8 gap-4 mt-4 p-4 items-center relative"
         >
           <span class="text-xl absolute top-1 right-2">X</span>
-          <img :src="product.image" class="w-28" />
+          <img :src="product.photo" class="w-28" />
           <div class="flex flex-col">
             <h1 class="bold underline">{{ product.model }}</h1>
             <h3>{{ product.priceStr }}</h3>
