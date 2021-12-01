@@ -1,6 +1,9 @@
 <template>
   <div class="flex justify-center">
     <div class="subnav mb-8">
+      <NuxtLink to="/gadgets/all">
+        <button class="link-btn rounded-xl px-4 py-2">All</button></NuxtLink
+      >
       <NuxtLink to="/gadgets/phones">
         <button class="link-btn rounded-xl px-4 py-2">
           Mobile Phones
