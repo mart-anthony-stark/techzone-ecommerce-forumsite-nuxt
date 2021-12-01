@@ -31,7 +31,7 @@
             </div>
 
             <button
-              @click="$router.push(`/product/${i}`)"
+              @click="$router.push(`${product.link}`)"
               class="view-btn uppercase text-white w-full py-2 rounded-lg mt-4"
             >
               view product
