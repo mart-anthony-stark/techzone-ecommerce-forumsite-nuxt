@@ -116,7 +116,5 @@ export default {
   transform: translateX(-50%);
 }
 
-.stars {
-  color: rgb(224, 83, 28);
-}
+
 </style>
