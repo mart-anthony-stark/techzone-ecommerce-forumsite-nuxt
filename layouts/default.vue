@@ -47,6 +47,9 @@ body {
 .bounce-leave-active {
   animation: bounce-in 0.5s reverse;
 }
+.stars {
+  color: rgb(224, 132, 28);
+}
 @keyframes bounce-in {
   0% {
     transform: scale(0);
