@@ -52,10 +52,11 @@
               <h1 class="text-center">{{ product.model }}</h1>
             </li>
             <h2 v-if="cart.length === 0" class="text-center font-extrabold">
-              Your cart is empty
+              No Products Yet
             </h2>
             <button
               @click="gotoCheckout"
+              v-if="cart.length !== 0"
               class="text-white text-center py-2 bg-pri w-full mt-4"
             >
               GOTO CART
