@@ -38,6 +38,9 @@ body {
 .bg-pri {
   background: var(--c-pri);
 }
+.text-sec {
+  color: var(--c-accent);
+}
 .section {
   min-height: 100vh;
 }
