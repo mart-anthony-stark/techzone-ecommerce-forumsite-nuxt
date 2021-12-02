@@ -25,6 +25,11 @@
             Shop
           </button></NuxtLink
         >
+        <NuxtLink to="/order-tracker"
+          ><button class="navlink hover:border-b hover:border-blue-400">
+            My Orders
+          </button></NuxtLink
+        >
         <NuxtLink to="/contact-us"
           ><button class="navlink hover:border-b hover:border-blue-400">
             Contact us
