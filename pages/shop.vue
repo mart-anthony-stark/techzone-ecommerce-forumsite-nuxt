@@ -1,6 +1,6 @@
 <template>
   <div class="mt-24">
-    <h1 class="text-blue-500 text-5xl mt-24 mb-12 text-center extrabold">
+    <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">
       Tech Shop
     </h1>
     <div class="flex justify-center">
