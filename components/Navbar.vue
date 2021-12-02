@@ -27,7 +27,7 @@
         >
         <NuxtLink to="/order-tracker"
           ><button class="navlink hover:border-b hover:border-blue-400">
-            My Orders
+            Order Status
           </button></NuxtLink
         >
         <NuxtLink to="/contact-us"

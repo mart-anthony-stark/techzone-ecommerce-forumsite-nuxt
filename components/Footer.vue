@@ -44,7 +44,7 @@
               Store Locator
             </button></NuxtLink
           >
-          <NuxtLink to="/gadgets/accessories"
+          <NuxtLink to="/order-tracker"
             ><button class="hover:text-blue-500 text-center">
               Order Status
             </button></NuxtLink
