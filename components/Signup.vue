@@ -1,7 +1,7 @@
 <template>
   <form
     @submit="signup"
-    class="flex flex-col bg-blue-500 text-white rounded-lg py-8 px-12 mt-8"
+    class="flex flex-col bg-blue-500 text-white rounded-lg py-8 px-12"
   >
     <div class="flex items-center flex-col">
       <h1 class="text-3xl">Welcome to TechZone</h1>
