@@ -3,44 +3,56 @@
     <h1 class="text-blue-500 text-5xl mt-24 mb-12 text-center extrabold">
       Tech Shop
     </h1>
-    <div class="grid grid-cols-2 grid-rows-2 gap-4 py-4">
-      <div class="card mx-8 p-4 flex flex-col items-center">
-        <img src="/images/gadgets/phones.svg" alt="mobile phones" />
-        <h2 class="text-blue-500 text-2xl mb-2">Mobile Phones</h2>
+    <div class="flex justify-center">
+      <div class="categories grid grid-cols-4 grid-rows-1 gap-2 py-4">
         <NuxtLink to="/gadgets/phones">
-          <button class="shop-btn text-white rounded-lg px-4 py-2">
-            Shop Now
-          </button>
+          <div class="card mx-8 p-4 flex flex-col items-center">
+            <img src="/images/gadgets/phones.svg" alt="mobile phones" />
+            <h2 class="font-extrabold text-blue-500 text-2xl mb-2">
+              Mobile Phones
+            </h2>
+            <button class="shop-btn text-white rounded-lg px-4 py-2">
+              Shop Now
+            </button>
+          </div>
         </NuxtLink>
-      </div>
-      <div class="card mx-8 p-4 flex flex-col items-center">
-        <img src="/images/gadgets/tablets.svg" alt="mobile phones" />
-        <h2 class="text-blue-500 text-2xl mb-2">Tablets</h2>
         <NuxtLink to="/gadgets/tablets">
-          <button class="shop-btn text-white rounded-lg px-4 py-2">
-            Shop Now
-          </button>
+          <div class="card mx-8 p-4 flex flex-col items-center">
+            <img src="/images/gadgets/tablets.svg" alt="mobile phones" />
+            <h2 class="font-extrabold text-blue-500 text-2xl mb-2">Tablets</h2>
+            <button class="shop-btn text-white rounded-lg px-4 py-2">
+              Shop Now
+            </button>
+          </div>
         </NuxtLink>
-      </div>
-      <div class="card mx-8 p-4 flex flex-col items-center">
-        <img src="/images/gadgets/laptops.svg" alt="mobile phones" />
-        <h2 class="text-blue-500 text-2xl mb-2">Laptops</h2>
         <NuxtLink to="/gadgets/laptops">
-          <button class="shop-btn text-white rounded-lg px-4 py-2">
-            Shop Now
-          </button>
+          <div class="card mx-8 p-4 flex flex-col items-center">
+            <img src="/images/gadgets/laptops.svg" alt="mobile phones" />
+            <h2 class="font-extrabold text-blue-500 text-2xl mb-2">Laptops</h2>
+            <button class="shop-btn text-white rounded-lg px-4 py-2">
+              Shop Now
+            </button>
+          </div>
         </NuxtLink>
-      </div>
-      <div class="card mx-8 p-4 flex flex-col items-center">
-        <img src="/images/gadgets/accessories.svg" alt="mobile phones" />
-        <h2 class="text-blue-500 text-2xl mb-2">Accessories</h2>
         <NuxtLink to="/gadgets/accessories">
-          <button class="shop-btn text-white rounded-lg px-4 py-2">
-            Shop Now
-          </button>
+          <div class="card mx-8 p-4 flex flex-col items-center">
+            <img src="/images/gadgets/accessories.svg" alt="mobile phones" />
+            <h2 class="font-extrabold text-blue-500 text-2xl mb-2">
+              Accessories
+            </h2>
+            <button class="shop-btn text-white rounded-lg px-4 py-2">
+              Shop Now
+            </button>
+          </div>
         </NuxtLink>
       </div>
     </div>
+
+    <NuxtLink to="/gadgets/all">
+      <h1 class="mt-4 text-center text-red-400 text-xl font-extrabold">
+        View All Products
+      </h1>
+    </NuxtLink>
 
     <!-- SLIDER -->
     <h1 class="text-blue-500 text-5xl mt-24 mb-12 text-center extrabold">
@@ -48,32 +60,62 @@
     </h1>
     <div class="flex gap-24 justify-around flex-wrap mb-24 px-8">
       <div
-        v-for="(phone, i) in phones"
+        v-for="phone in phones"
         :key="phone.model"
         class="grid flex-col gap-4 w-60 place-items-center justify-center"
       >
         <img :src="phone.photo" class="h-60" />
         <h1 class="extrabold">{{ phone.model }}</h1>
-        <button
-          @click="$router.push(`/phone/${i}`)"
-          class="product-btn bg-pri text-white py-2 rounded w-full w-inherit"
-        >
-          VIEW PRODUCT
-        </button>
+        <div class="self-end w-full">
+          <div class="flex stars justify-center">
+            <fa v-for="star in phone.rating" :key="star" icon="star" />
+          </div>
+
+          <button
+            @click="$router.push(`${phone.link}`)"
+            class="
+              product-btn
+              mt-2
+              bg-pri
+              text-white
+              py-2
+              rounded
+              uppercase
+              w-full w-inherit
+            "
+          >
+            view product
+          </button>
+        </div>
       </div>
       <div
-        v-for="(tablet, i) in tablets"
+        v-for="tablet in tablets"
         :key="tablet.model"
         class="grid flex-col gap-4 w-60 place-items-center justify-end"
       >
         <img :src="tablet.photo" class="h-60" />
         <h1 class="extrabold">{{ tablet.model }}</h1>
-        <button
-          @click="$router.push(`/tablet/${i}`)"
-          class="product-btn bg-pri text-white py-2 rounded w-full w-inherit"
-        >
-          VIEW PRODUCT
-        </button>
+        <div class="self-end w-full">
+          <div class="flex stars justify-center">
+            <fa v-for="star in tablet.rating" :key="star" icon="star" />
+          </div>
+
+          <button
+            @click="$router.push(`${tablet.link}`)"
+            class="
+              product-btn
+              mt-2
+              bg-pri
+              text-white
+              py-2
+              rounded
+              uppercase
+              w-full w-inherit
+            "
+          >
+            view product
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -104,6 +146,7 @@ export default {
 <style scoped>
 .shop-btn {
   background: var(--c-pri);
+  width: 100%;
 }
 .shop-btn:hover {
   background: var(--c-accent);
@@ -111,8 +154,25 @@ export default {
 .card {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.card:hover img {
+  transform: scale(1.2);
+  z-index: -1;
+  transition: 0.5s ease;
 }
 .product-btn {
-  width: inherit;
+  width: 100%;
+}
+.grid-container {
+  /* max-width: 600px; */
+}
+@media (max-width: 1075px) {
+  .categories {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 </style>
