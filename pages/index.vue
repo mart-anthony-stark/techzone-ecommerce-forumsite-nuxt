@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-4 grid grid-cols-2 items-center min-h-screen">
-    <div class="flex flex-col items-center justify-center">
+  <div class="index-container mt-24 grid grid-cols-2 min-h-screen">
+    <div class="welcome flex flex-col items-center justify-self-end">
       <img :src="displaySvg" class="w-3/5" />
       <div>
         <h1 class="pri text-center font-extrabold text-5xl">TechZone</h1>
@@ -9,9 +9,11 @@
         >
       </div>
     </div>
-    <div class="flex items-center justify-center">
+
+    <div class="flex items-start justify-center">
       <component :is="component" @changeForm="changeForm" />
     </div>
+
     <img src="/images/blob.svg" class="blob fixed top-0 right-0" />
   </div>
 </template>
@@ -40,6 +42,15 @@ export default {
 }
 .blob {
   /* top: -50px; */
-  z-index: -1;
+  z-index: -99;
+}
+@media (max-width: 940px) {
+  .index-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .welcome {
+    display: none;
+  }
 }
 </style>
