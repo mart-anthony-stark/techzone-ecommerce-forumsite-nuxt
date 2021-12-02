@@ -1,12 +1,21 @@
 <template>
-  <div class="checkout-page mt-24">
+  <div class="checkout-page mt-24 px-8">
     <h1 class="text-center text-5xl extrabold text-blue-500">Checkout</h1>
-    <div class="flex gap-24 justify-center mt-8 align-start">
-      <div class="shadow bg-gray-200 p-8 rounded-lg">
+    <div class="flex gap-24 flex-wrap justify-center mt-8 align-start">
+      <div class="my-cart shadow bg-gray-200 p-8 rounded-lg">
         <h1 class="text-xl bold underline">My Cart</h1>
         <div
           v-if="products.length === 0"
-          class="text-center font-extrabold text-xl flex items-center h-full"
+          class="
+            text-center
+            font-extrabold
+            text-xl
+            flex
+            items-center
+            justify-center
+            h-full
+            w-full
+          "
         >
           You have no items in cart
         </div>
@@ -85,7 +94,10 @@ export default {
       return this.$store.state.cart.cart
     },
     subTotal() {
-      return this.products.reduce((total, product) => total + product.price, 0)
+      return this.products.reduce(
+        (total, product) => total + product.price * product.quantity,
+        0
+      )
     },
     formattedSubTotal() {
       return this.subTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -97,7 +109,6 @@ export default {
     },
     addQuantity(product) {
       this.$store.commit('cart/addQuantity', product.model)
-      console.log(this.products)
     },
     subtractQuantity(product) {
       this.$store.commit('cart/subtractQuantity', product.model)
@@ -126,6 +137,10 @@ export default {
   max-width: 300px;
   width: 100%;
   max-height: 350px;
+}
+.my-cart {
+  max-width: 600px;
+  width: 100%;
 }
 select {
   border: 1px solid black;
