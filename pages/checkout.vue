@@ -26,9 +26,19 @@
             <h3>{{ product.priceStr }}</h3>
             <div class="mt-4">
               <span>Quantity:</span>
-              <button class="decr-btn p-2 rounded">-</button>
+              <button
+                @click="subtractQuantity(product)"
+                class="decr-btn p-2 rounded"
+              >
+                -
+              </button>
               <span class="mx-2">{{ product.quantity }}</span>
-              <button class="incr-btn p-2 rounded">+</button>
+              <button
+                @click="addQuantity(product)"
+                class="incr-btn p-2 rounded"
+              >
+                +
+              </button>
             </div>
           </div>
         </div>
@@ -84,6 +94,13 @@ export default {
   methods: {
     remove(product) {
       this.$store.commit('cart/removeItem', product.model)
+    },
+    addQuantity(product) {
+      this.$store.commit('cart/addQuantity', product.model)
+      console.log(this.products)
+    },
+    subtractQuantity(product) {
+      this.$store.commit('cart/subtractQuantity', product.model)
     },
   },
 }
