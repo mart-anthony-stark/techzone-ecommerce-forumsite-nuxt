@@ -6,7 +6,7 @@
         <h1 class="text-xl bold underline">My Cart</h1>
         <div
           v-if="products.length === 0"
-          class="text-center font-extrabold text-xl"
+          class="text-center font-extrabold text-xl flex items-center h-full"
         >
           You have no items in cart
         </div>
