@@ -3,7 +3,9 @@
     <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">
       Contact Us
     </h1>
-    <div class="flex gap-4 justify-center">
+    <div class="flex gap-4 justify-center flex-wrap">
+      <img src="/images/contact.svg" id="contact" />
+
       <form @submit="submitForm" class="p-4 py-8">
         <div class="grid grid-cols-2 gap-2">
           <div>
@@ -57,9 +59,12 @@
         <button class="bg-pri text-white py-2 w-full mt-4">Send Message</button>
       </form>
 
-      <div></div>
+      <div>
+        <!-- <div class="text-2xl text-sec">
+          <fa icon="location-arrow" />
+        </div> -->
+      </div>
     </div>
-    
   </div>
 </template>
 
@@ -85,5 +90,8 @@ form input {
 }
 form textarea {
   resize: none;
+}
+img#contact {
+  width: 600px;
 }
 </style>
