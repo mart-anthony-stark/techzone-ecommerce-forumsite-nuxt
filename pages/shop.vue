@@ -1,8 +1,31 @@
 <template>
   <div class="mt-24">
-    <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">
-      Tech Shop
-    </h1>
+    <!-- <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">Shop</h1> -->
+    <div class="section banner">
+      <div class="flex flex-col items-center">
+        <img src="/images/phones.png" id="phones" />
+        <div class="flex flex-col items-center gap-8">
+          <h3 class="text-3xl font-extrabold text-pri">
+            Brings You Best Tech, Best Future
+          </h3>
+          <a
+            href="#categories"
+            class="px-12 py-4 bg-pri text-white text-center"
+          >
+            <fa icon="shopping-cart" />
+            SHOP NOW</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="categories"
+      class="py-12 text-center text-blue-500 text-5xl font-extrabold"
+    >
+      Categories
+    </div>
+
     <div class="flex justify-center">
       <div class="categories grid grid-cols-4 grid-rows-1 gap-2 py-4">
         <NuxtLink to="/gadgets/phones">
@@ -72,7 +95,6 @@
           </div>
 
           <button
-            @click="$router.push(`${phone.link}`)"
             class="
               product-btn
               mt-2
@@ -83,6 +105,7 @@
               uppercase
               w-full w-inherit
             "
+            @click="$router.push(`${phone.link}`)"
           >
             view product
           </button>
@@ -101,7 +124,6 @@
           </div>
 
           <button
-            @click="$router.push(`${tablet.link}`)"
             class="
               product-btn
               mt-2
@@ -112,6 +134,7 @@
               uppercase
               w-full w-inherit
             "
+            @click="$router.push(`${tablet.link}`)"
           >
             view product
           </button>
@@ -148,6 +171,12 @@ export default {
   background: var(--c-pri);
   width: 100%;
 }
+.banner h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+.banner a {
+  width: max-content;
+}
 .shop-btn:hover {
   background: var(--c-accent);
 }
@@ -168,6 +197,9 @@ export default {
 }
 .grid-container {
   /* max-width: 600px; */
+}
+#phones {
+  max-width: 600px;
 }
 @media (max-width: 1075px) {
   .categories {
