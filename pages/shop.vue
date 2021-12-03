@@ -2,15 +2,23 @@
   <div class="mt-24">
     <!-- <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">Shop</h1> -->
     <div class="section banner">
-      <div class="flex flex-col items-center">
-        <img src="/images/phones.png" id="phones" />
-        <div class="flex flex-col items-center gap-8">
-          <h3 class="text-3xl font-extrabold text-pri">
+      <div class="flex flex-col items-center justify-center">
+        <div class="gadget-slider" id="slider">
+          <figure>
+            <img src="/images/phones.png" id="phones" />
+            <img src="/images/laptops.png" id="phones" />
+            <img src="/images/tablets.png" id="phones" />
+          </figure>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <h1 class="text-5xl font-extrabold text-pri">Tech Zone Shop</h1>
+          <h3 class="text-2xl font-extrabold text-sec">
             Brings You Best Tech, Best Future
           </h3>
           <a
             href="#categories"
-            class="px-12 py-4 bg-pri text-white text-center"
+            class="px-12 py-4 bg-pri text-white text-center mt-8"
           >
             <fa icon="shopping-cart" />
             SHOP NOW</a
@@ -167,6 +175,48 @@ export default {
 </script>
 
 <style scoped>
+/* SLIDER */
+#slider {
+  position: relative;
+  height: 300px;
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+}
+#slider figure {
+  position: relative;
+  width: 300%;
+  left: 0;
+  overflow: hidden;
+  animation: 10s slider infinite ease-in-out;
+}
+#slider figure img {
+  cursor: pointer;
+  width: calc(100% / 3);
+  height: 300px;
+  float: left;
+  transition: 0.5s ease-in-out;
+}
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  60% {
+    left: -200%;
+  }
+  90% {
+    left: -200%;
+  }
+}
 .shop-btn {
   background: var(--c-pri);
   width: 100%;
