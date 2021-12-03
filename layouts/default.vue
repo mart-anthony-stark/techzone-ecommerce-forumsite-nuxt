@@ -12,6 +12,7 @@ export default {}
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 :root {
   --c-pri: #031b89;
   --c-pri-light: #1e3ab8;
@@ -37,6 +38,9 @@ body {
 }
 .bg-pri {
   background: var(--c-pri);
+}
+.text-pri {
+  color: var(--c-pri);
 }
 .text-sec {
   color: var(--c-accent);
