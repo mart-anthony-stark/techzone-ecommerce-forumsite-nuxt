@@ -1,7 +1,9 @@
 <template>
   <div class="mt-24">
-    <!-- <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">Shop</h1> -->
-    <div class="section banner">
+    <h1 class="font-bold text-center text-4xl mb-8 text-blue-500">
+      Gadget Shop
+    </h1>
+    <div class="banner">
       <div class="flex flex-col items-center justify-center">
         <div class="gadget-slider" id="slider">
           <figure>
@@ -10,27 +12,10 @@
             <img src="/images/tablets.png" id="phones" />
           </figure>
         </div>
-
-        <div class="flex flex-col items-center">
-          <h1 class="text-5xl font-extrabold text-pri">Tech Zone Shop</h1>
-          <h3 class="text-2xl font-extrabold text-sec">
-            Brings You Best Tech, Best Future
-          </h3>
-          <a
-            href="#categories"
-            class="px-12 py-4 bg-pri text-white text-center mt-8"
-          >
-            <fa icon="shopping-cart" />
-            SHOP NOW</a
-          >
-        </div>
       </div>
     </div>
 
-    <div
-      id="categories"
-      class="py-12 text-center text-blue-500 text-5xl font-extrabold"
-    >
+    <div id="categories" class="pb-8 text-center text-blue-500 text-5xl">
       Categories
     </div>
 
@@ -191,7 +176,6 @@ export default {
   animation: 10s slider infinite ease-in-out;
 }
 #slider figure img {
-  cursor: pointer;
   width: calc(100% / 3);
   height: 300px;
   float: left;

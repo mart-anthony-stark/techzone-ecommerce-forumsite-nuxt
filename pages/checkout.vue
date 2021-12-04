@@ -1,6 +1,6 @@
 <template>
   <div class="checkout-page mt-24 px-8">
-    <h1 class="text-center text-5xl extrabold text-blue-500">Checkout</h1>
+    <h1 class="text-center text-5xl text-blue-500">Checkout</h1>
     <div class="flex gap-24 flex-wrap justify-center mt-8 align-start">
       <div class="my-cart shadow bg-gray-200 p-8 rounded-lg">
         <h1 class="text-xl bold underline">My Cart</h1>

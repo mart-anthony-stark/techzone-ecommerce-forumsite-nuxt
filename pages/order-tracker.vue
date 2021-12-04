@@ -1,6 +1,6 @@
 <template>
   <div class="section mt-24 px-8">
-    <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">
+    <h1 class="font-bold text-center text-4xl mb-8 text-blue-500">
       Order Tracker
     </h1>
     <div class="flex justify-center">
