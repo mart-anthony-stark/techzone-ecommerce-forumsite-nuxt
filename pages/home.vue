@@ -1,7 +1,7 @@
 <template>
   <div class="home mt-24">
     <CreatePost v-if="createShown" @closeCreatePost="createShown = false" />
-    <h1 class="font-extrabold text-center text-4xl mb-8 text-blue-500">
+    <h1 class="font-bold text-center text-4xl mb-8 text-blue-500">
       Tech Forum
     </h1>
 
@@ -32,6 +32,8 @@
     </div>
 
     <div class="px-20 flex gap-20 flex-wrap justify-center pb-8">
+      <LoadingCards v-show="loading" v-for="loader in loaders" :key="loader" />
+
       <div
         v-for="(post, i) in filteredPost"
         :key="i"
@@ -62,7 +64,7 @@
           @down="down"
         />
       </div>
-      <Noresult v-if="filteredPost.length === 0" />
+      <Noresult v-if="filteredPost.length === 0 && !loading" />
     </div>
   </div>
 </template>
@@ -73,6 +75,8 @@ export default {
     return {
       createShown: false,
       search: '',
+      loading: true,
+      loaders: 10,
     }
   },
   computed: {
@@ -97,6 +101,15 @@ export default {
     down(index) {
       this.$store.commit('posts/down', index)
     },
+  },
+  async mounted() {
+    const data = await this.$axios.$get('/data/posts.json')
+
+    this.$store.commit('posts/populate', data)
+
+    setTimeout(() => {
+      this.loading = false
+    }, 1000)
   },
 }
 </script>
