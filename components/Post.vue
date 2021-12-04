@@ -40,7 +40,7 @@
           </span>
         </div>
         <div class="flex items-center gap-2">
-          <img src="/images/icons/comment.svg" class="w-4" />
+          <img src="/images/icons/comment.svg" class="profile w-4" />
           <span class="text-blue-500 text-2xl">{{ totalComments }}</span>
         </div>
       </div>
@@ -80,5 +80,8 @@ export default {
 }
 .details {
   border-top: 1px solid rgba(0, 0, 0, 0.7);
+}
+img.profile {
+  width: 50px;
 }
 </style>
