@@ -33,14 +33,14 @@
 
       <div class="details flex justify-between absolute w-full py-2">
         <div class="flex items-end">
-          <img :src="dp" class="w-12 mr-2" />
+          <img :src="dp" class="w-12 mr-2 profile" />
           <span class="flex">
             <h1 class="text-blue-500 mr-1">{{ author }}</h1>
             <h3 class="text-gray-500 italic">• author</h3>
           </span>
         </div>
         <div class="flex items-center gap-2">
-          <img src="/images/icons/comment.svg" class="profile w-4" />
+          <img src="/images/icons/comment.svg" class="w-4" />
           <span class="text-blue-500 text-2xl">{{ totalComments }}</span>
         </div>
       </div>
