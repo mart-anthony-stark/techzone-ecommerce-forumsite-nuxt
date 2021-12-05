@@ -1,5 +1,6 @@
 <template>
   <div class="mt-24">
+    <Chat />
     <transition name="slide-fade">
       <div
         v-show="showNotification"
@@ -115,6 +116,4 @@ export default {
   left: 50%;
   transform: translateX(-50%);
 }
-
-
 </style>
