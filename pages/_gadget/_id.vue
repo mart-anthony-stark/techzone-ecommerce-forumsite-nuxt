@@ -1,6 +1,6 @@
 <template>
   <div class="mt-24">
-    <Chat />
+    <Chat v-if="isLogged" />
     <transition name="slide-fade">
       <div
         v-show="showNotification"
@@ -11,7 +11,7 @@
     </transition>
 
     <div
-      @click="$router.go(-1)"
+      @click="back"
       class="
         flex
         ml-8
@@ -26,7 +26,10 @@
       <h1>Back</h1>
     </div>
 
-    <div class="container grid grid-cols-2 place-items-center">
+    <div
+      @click="$store.commit('global/close')"
+      class="container grid grid-cols-2 place-items-center"
+    >
       <img :src="item.photo" />
 
       <div class="card p-12 pl-0">
@@ -58,6 +61,9 @@
 <script>
 export default {
   computed: {
+    isLogged() {
+      return this.$store.state.auth.isLogged
+    },
     item() {
       const paths = this.$route.path.split('/').filter((p) => p !== '')
       const gadget = paths[0]
@@ -91,6 +97,10 @@ export default {
       setTimeout(() => {
         this.showNotification = false
       }, 1500)
+    },
+    back() {
+      this.$store.commit('global/close')
+      this.$router.go(-1)
     },
   },
 }
