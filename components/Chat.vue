@@ -1,14 +1,18 @@
 <template>
   <div class="chat-seller fixed bottom-4 right-4 z-50">
-    <div
-      @click="$store.commit('global/close')"
-      class="overlay fixed inset-0"
-    ></div>
     <div v-if="showChatbox" class="chatbox fixed">
-      <div class="messages h-full pb-14 pt-4 px-4 overflow-auto">
-        <h3 v-for="(message, i) in messages" :key="i" class="message">
-          {{ message.msg }}
-        </h3>
+      <div id="messages" class="messages h-full pb-14 pt-4 px-4 overflow-auto">
+        <div v-for="(message, i) in messages" :key="i" class="message flex">
+          <div
+            class="msg p-2 rounded-xl text-white"
+            :class="{
+              seller: message.type == 'seller',
+              self: message.type == 'self',
+            }"
+          >
+            {{ message.msg }}
+          </div>
+        </div>
       </div>
       <form
         @submit="send"
@@ -40,29 +44,25 @@ export default {
     return {
       msg: '',
       messages: [
-        { sender: 'seller', msg: 'asdasdasdasasddddddddddddddddddd' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'asdasdasdas' },
-        { sender: 'seller', msg: 'gfhfg' },
+        { type: 'seller', msg: 'asdasdasdasasddddddddddddddddddd' },
+        { type: 'self', msg: 'asdasdasdas' },
+        { type: 'seller', msg: 'asdasdasdas' },
+        { type: 'self', msg: 'asdasdasdas' },
       ],
     }
   },
   methods: {
     send(e) {
       e.preventDefault()
-      console.log(this.msg)
+      const msg = this.msg
+
+      if (msg === '') return
+
+      this.messages.push({ type: 'self', msg })
+      this.msg = ''
+
+      const element = document.getElementById('messages')
+      element.scrollTop = element.scrollHeight
     },
   },
   computed: {
@@ -79,7 +79,7 @@ export default {
 <style scoped>
 .overlay {
   background: transparent;
-  z-index: -1;
+  z-index: -999;
 }
 .icon {
   height: 60px;
@@ -114,12 +114,18 @@ form button {
   margin-right: 5px;
 }
 .message {
+  display: grid;
+}
+.message .msg {
+  word-break: break-all;
   max-width: 200px;
+  margin-bottom: 15px;
 }
 .self {
-  float: right;
+  justify-self: flex-end;
+  background: gray;
 }
 .seller {
-  background: var(--c-pri);
+  background: var(--c-pri-light);
 }
 </style>
