@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Navbar />
+    <Navbar @logout="showLogout = true" />
+    <Logout v-if="showLogout" @yes="logout" @no="showLogout = false" />
     <div class="">
       <Nuxt />
     </div>
@@ -8,7 +9,20 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      showLogout: false,
+    }
+  },
+  methods: {
+    logout() {
+      this.showLogout = false
+      this.$store.commit('auth/logout')
+      this.$router.push({ path: '/' })
+    },
+  },
+}
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -38,6 +52,9 @@ body {
 }
 .bg-pri {
   background: var(--c-pri);
+}
+.bg-sec {
+  background: var(--c-accent);
 }
 .text-pri {
   color: var(--c-pri);
