@@ -71,7 +71,7 @@
       </div>
       <button
         class="logout-btn uppercase px-4 py-2 rounded-lg"
-        @click="logout"
+        @click="$emit('logout')"
         v-if="isLogged"
       >
         Logout
@@ -97,10 +97,6 @@ export default {
     }
   },
   methods: {
-    logout() {
-      this.$store.commit('auth/logout')
-      this.$router.push({ path: '/' })
-    },
     gotoCheckout() {
       this.showCart = false
       this.$router.push('/checkout')
