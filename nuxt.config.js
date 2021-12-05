@@ -66,7 +66,7 @@ export default {
 
   target: 'static',
 
-  ssr: false,
+  // ssr: false,
 
   render: {
     static: {
