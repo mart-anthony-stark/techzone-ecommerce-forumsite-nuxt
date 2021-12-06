@@ -24,19 +24,19 @@
 
     <div class="mb-8 flex justify-end pr-20">
       <button
-        @click="createShown = true"
         class="post-btn bg-pri rounded text-white extrbold px-6 py-2"
+        @click="createShown = true"
       >
         + Create new post
       </button>
     </div>
 
     <div class="px-20 flex gap-20 flex-wrap justify-center pb-8">
-      <LoadingCards v-show="loading" v-for="loader in loaders" :key="loader" />
+      <LoadingCards v-for="(loader, i) in loaders" v-show="loading" :key="i" />
 
       <div
         v-for="(post, i) in filteredPost"
-        :key="i"
+        :key="post.body"
         class="
           card
           p-12
@@ -76,7 +76,7 @@ export default {
       createShown: false,
       search: '',
       loading: true,
-      loaders: 10,
+      loaders: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     }
   },
   computed: {
@@ -94,14 +94,6 @@ export default {
       })
     },
   },
-  methods: {
-    up(index) {
-      this.$store.commit('posts/up', index)
-    },
-    down(index) {
-      this.$store.commit('posts/down', index)
-    },
-  },
   async mounted() {
     const data = await this.$axios.$get('/data/posts.json')
 
@@ -110,6 +102,14 @@ export default {
     setTimeout(() => {
       this.loading = false
     }, 1000)
+  },
+  methods: {
+    up(index) {
+      this.$store.commit('posts/up', index)
+    },
+    down(index) {
+      this.$store.commit('posts/down', index)
+    },
   },
 }
 </script>
