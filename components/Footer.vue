@@ -11,7 +11,7 @@
       mt-8
     "
   >
-    <div class="flex gap-24 justify-center">
+    <div class="flex gap-24 flex-wrap justify-center">
       <div class="flex flex-col">
         <h1 class="text-xl extrabold border-b mb-4">Shop</h1>
         <NuxtLink to="/gadgets/phones"
