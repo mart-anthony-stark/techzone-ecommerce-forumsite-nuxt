@@ -2,7 +2,7 @@
   <div>
     <Navbar @logout="showLogout = true" />
     <Logout v-if="showLogout" @yes="logout" @no="showLogout = false" />
-    <div class="">
+    <div>
       <Nuxt />
     </div>
     <Footer />
