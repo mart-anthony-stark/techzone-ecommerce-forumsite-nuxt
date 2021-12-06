@@ -15,8 +15,8 @@
         </div>
       </div>
       <form
-        @submit="send"
         class="w-full absolute bottom-0 p-2 flex gap-2 items-center"
+        @submit="send"
       >
         <input
           v-model="msg"
@@ -30,8 +30,9 @@
       </form>
     </div>
     <div
-      @click="$store.commit('global/toggle')"
+      id="icon"
       class="icon grid place-items-center cursor-pointer text-3xl"
+      @click="toggleChat"
     >
       <fa :icon="icon" />
     </div>
@@ -51,6 +52,14 @@ export default {
       ],
     }
   },
+  computed: {
+    showChatbox() {
+      return this.$store.state.global.showChatbox
+    },
+    icon() {
+      return this.showChatbox === false ? 'comments' : 'times'
+    },
+  },
   methods: {
     send(e) {
       e.preventDefault()
@@ -62,15 +71,12 @@ export default {
       this.msg = ''
 
       const element = document.getElementById('messages')
-      element.scrollTop = element.scrollHeight
+      element.scrollTop = element.scrollHeight + 80
     },
-  },
-  computed: {
-    showChatbox() {
-      return this.$store.state.global.showChatbox
-    },
-    icon() {
-      return this.showChatbox === false ? 'comments' : 'times'
+    toggleChat() {
+      this.$store.commit('global/toggle')
+      const chatBtn = document.querySelector('#icon')
+      chatBtn.style.transform = 'rotate(360deg)'
     },
   },
 }
@@ -87,6 +93,7 @@ export default {
   background: var(--c-accent);
   color: #fff;
   border-radius: 100%;
+  transition: 0.5s ease-in-out;
 }
 .chat-seller ::-webkit-scrollbar-thumb {
   background: white;
