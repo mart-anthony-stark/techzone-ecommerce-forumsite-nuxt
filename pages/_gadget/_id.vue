@@ -55,6 +55,38 @@
     <!-- <div class="mt-4">
       <StarRate />
     </div> -->
+    <!-- REVIEWS -->
+    <div class="flex flex-col items-center">
+      <div class="reviews-cont mt-8">
+        <h2 class="text-blue-500 text-3xl mb-4">Customer Reviews</h2>
+        <div
+          v-for="(review, i) in reviews"
+          v-show="!loading"
+          :key="i"
+          class="review mb-8 p-4 rounded-xl"
+        >
+          <div class="flex gap-4 items-center">
+            <div class="text-3xl text-sec"><fa icon="user" /></div>
+            <h3 class="font-bold text-xl">{{ review.name }}</h3>
+          </div>
+          <div class="stars">
+            <fa v-for="star in review.rating" :key="star" icon="star" />
+          </div>
+          <p>{{ review.body }}</p>
+        </div>
+
+        <div
+          v-for="(loader, i) in loaders"
+          v-show="loading"
+          :key="i"
+          class="review mb-8 p-4 rounded-xl"
+        >
+          <div id="rating" class="sktn"></div>
+          <h3 class="sktn"></h3>
+          <p class="sktn"></p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -64,8 +96,12 @@ export default {
     return {
       notification: 'Item already added to cart',
       showNotification: false,
+      reviews: [],
+      loaders: 5,
+      loading: true,
     }
   },
+
   computed: {
     isLogged() {
       return this.$store.state.auth.isLogged
@@ -83,6 +119,18 @@ export default {
       return this.$store.state.auth.isLogged
     },
   },
+
+  async mounted() {
+    const res = await fetch('/data/reviews.json')
+    const data = await res.json()
+
+    this.reviews = data
+
+    setTimeout(() => {
+      this.loading = false
+    }, 1500)
+  },
+
   methods: {
     addThis() {
       const exist = this.cartItems.find((el) => el.model === this.item.model)
@@ -126,6 +174,26 @@ export default {
   left: 50%;
   transform: translateX(-50%);
 }
+
+.reviews-cont {
+  max-width: 500px;
+  width: 100%;
+}
+
+.review {
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#rating {
+  max-width: 100px;
+}
+
+.sktn {
+  margin-bottom: 10px;
+}
+
 @media (max-width: 634px) {
   .container {
     display: flex;
