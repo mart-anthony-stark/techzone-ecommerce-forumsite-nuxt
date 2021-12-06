@@ -94,10 +94,10 @@ export default {
       })
     },
   },
-  async mounted() {
-    const data = await this.$axios.$get('/data/posts.json')
-
-    this.$store.commit('posts/populate', data)
+  mounted() {
+    this.$axios
+      .$get('/data/posts.json')
+      .then((data) => this.$store.commit('posts/populate', data))
 
     setTimeout(() => {
       this.loading = false
