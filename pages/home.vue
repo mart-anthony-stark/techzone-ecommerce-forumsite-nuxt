@@ -95,9 +95,9 @@ export default {
     },
   },
   mounted() {
-    this.$axios
-      .$get('/data/posts.json')
-      .then((data) => this.$store.commit('posts/populate', data))
+    // this.$axios
+    //   .$get('/data/posts.json')
+    //   .then((data) => this.$store.commit('posts/populate', data))
 
     setTimeout(() => {
       this.loading = false
