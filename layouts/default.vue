@@ -74,6 +74,9 @@ body {
 .stars {
   color: rgb(224, 132, 28);
 }
+.font-extrabold {
+  font-weight: 600 !important;
+}
 @keyframes bounce-in {
   0% {
     transform: scale(0);
