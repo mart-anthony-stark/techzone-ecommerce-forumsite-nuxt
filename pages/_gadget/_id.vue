@@ -11,7 +11,6 @@
     </transition>
 
     <div
-      @click="back"
       class="
         flex
         ml-8
@@ -21,18 +20,19 @@
         cursor-pointer
         extrabold
       "
+      @click="back"
     >
       <img src="/images/icons/back.svg" />
       <h1>Back</h1>
     </div>
 
     <div
-      @click="$store.commit('global/close')"
       class="container grid grid-cols-2 place-items-center"
+      @click="$store.commit('global/close')"
     >
       <img :src="item.photo" />
 
-      <div class="card p-12 pl-0">
+      <div class="card p-12">
         <h1 class="text-xl extrabold">{{ item.model }}</h1>
         <h3>{{ item.priceStr }}</h3>
         <div class="flex stars">
@@ -44,8 +44,8 @@
           <h3 v-for="bullet in item.specs" :key="bullet">{{ bullet }}</h3>
         </div>
         <button
-          @click="addThis"
           class="bg-pri text-white px-12 py-2 rounded mt-4"
+          @click="addThis"
         >
           Add to cart
         </button>
@@ -60,6 +60,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      notification: 'Item already added to cart',
+      showNotification: false,
+    }
+  },
   computed: {
     isLogged() {
       return this.$store.state.auth.isLogged
@@ -76,12 +82,6 @@ export default {
     isAuth() {
       return this.$store.state.auth.isLogged
     },
-  },
-  data() {
-    return {
-      notification: 'Item already added to cart',
-      showNotification: false,
-    }
   },
   methods: {
     addThis() {
@@ -125,5 +125,12 @@ export default {
   background: var(--c-accent);
   left: 50%;
   transform: translateX(-50%);
+}
+@media (max-width: 634px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 </style>
