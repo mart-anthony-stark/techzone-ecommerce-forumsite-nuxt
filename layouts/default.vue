@@ -77,6 +77,30 @@ body {
 .font-extrabold {
   font-weight: 600 !important;
 }
+
+.sktn {
+  background: rgb(167, 167, 167);
+  width: 100%;
+  height: 20px;
+  border-radius: 15px;
+  background: linear-gradient(0.25turn, transparent, #fff, transparent),
+    linear-gradient(rgb(189, 189, 189), rgb(189, 189, 189)),
+    radial-gradient(
+      38px circle at 19px 19px,
+      rgb(189, 189, 189) 50%,
+      transparent 51%
+    ),
+    linear-gradient(rgb(189, 189, 189), rgb(189, 189, 189));
+  background-repeat: no-repeat;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: 315px 0, 0 0, 0 190px, 50px 195px;
+  }
+}
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);
