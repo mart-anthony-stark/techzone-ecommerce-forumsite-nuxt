@@ -70,32 +70,32 @@
         </div>
       </div>
 
-      <div class="flex items-center gap-4">
-        <NuxtLink to="/"
-          ><div
-            v-if="isLogged"
-            class="text-3xl user-profile grid place-items-center"
-          >
-            <fa icon="user" /></div
-        ></NuxtLink>
-
-        <button
+      <NuxtLink to="/profile"
+        ><div
           v-if="isLogged"
-          class="logout-btn uppercase px-4 py-2 rounded-lg"
-          @click="$emit('logout')"
+          class="text-3xl user-profile grid place-items-center"
         >
-          Logout
-        </button>
+          <fa icon="user" /></div
+      ></NuxtLink>
 
-        <NuxtLink to="/"
-          ><button
-            v-if="!isLogged"
-            class="logout-btn uppercase px-4 py-2 rounded-lg"
-          >
-            Login
-          </button></NuxtLink
+      <button
+        v-if="isLogged"
+        class="logout-btn uppercase px-4 py-2 rounded-lg"
+        @click="$emit('logout')"
+      >
+        Logout
+      </button>
+
+      <NuxtLink to="/"
+        ><button
+          v-if="!isLogged"
+          class="logout-btn uppercase px-4 py-2 rounded-lg"
         >
-      </div>
+          Login
+        </button></NuxtLink
+      >
+
+      <button class="menu"><div class="bar"></div></button>
     </div>
   </nav>
 </template>
@@ -183,14 +183,59 @@ a.nuxt-link-active {
   color: var(--c-accent);
 }
 .user-profile {
-  border: 1px solid white;
+  /* border: 1px solid white;
   height: 50px;
   width: 50px;
-  border-radius: 50%;
+  border-radius: 50%; */
 }
-@media (max-width: 895px) {
-  .links {
+button.menu {
+  height: 50px;
+  width: 50px;
+  border: 2px solid white;
+  border-radius: 100%;
+  place-items: center;
+  display: none;
+}
+.menu .bar {
+  width: 30px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--c-accent);
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+.menu .bar::before {
+  content: '';
+  position: absolute;
+  width: 29px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--c-accent);
+  transform: translateY(-10px);
+  display: block;
+  transition: 0.5s ease-in-out;
+}
+.menu .bar::after {
+  content: '';
+  width: 29px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--c-accent);
+  transform: translateY(10px);
+  display: block;
+  transition: 0.5s ease-in-out;
+}
+
+.menu.active .bar {
+}
+@media (max-width: 951px) {
+  .links,
+  .logout-btn,
+  .user-profile {
     display: none;
+  }
+  button.menu {
+    display: grid;
   }
 }
 </style>
