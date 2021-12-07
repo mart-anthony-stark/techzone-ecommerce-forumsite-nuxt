@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="flex gap-8 items-center">
-      <div class="cart" v-if="isLogged">
+      <div v-if="isLogged" class="cart">
         <button class="cart-btn" @click="showCart = !showCart">
           <img src="/images/cart.svg" alt="cart icon" class="w-8" />
         </button>
@@ -46,7 +46,7 @@
           class="total-quantity bg-blue-500 flex items-center justify-center"
           >{{ cart.length }}</span
         >
-        <div class="cart-dropdown" v-if="showCart">
+        <div v-if="showCart" class="cart-dropdown">
           <ul>
             <li
               v-for="(product, i) in cart"
@@ -60,9 +60,9 @@
               No Products Yet
             </h2>
             <button
-              @click="gotoCheckout"
               v-if="cart.length !== 0"
               class="text-white text-center py-2 bg-pri w-full mt-4"
+              @click="gotoCheckout"
             >
               GOTO CART
             </button>
@@ -80,9 +80,9 @@
         ></NuxtLink>
 
         <button
+          v-if="isLogged"
           class="logout-btn uppercase px-4 py-2 rounded-lg"
           @click="$emit('logout')"
-          v-if="isLogged"
         >
           Logout
         </button>
@@ -107,18 +107,18 @@ export default {
       showCart: false,
     }
   },
-  methods: {
-    gotoCheckout() {
-      this.showCart = false
-      this.$router.push('/checkout')
-    },
-  },
   computed: {
     isLogged() {
       return this.$store.state.auth.isLogged
     },
     cart() {
       return this.$store.state.cart.cart
+    },
+  },
+  methods: {
+    gotoCheckout() {
+      this.showCart = false
+      this.$router.push('/checkout')
     },
   },
 }
