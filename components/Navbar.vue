@@ -37,7 +37,7 @@
         >
       </div>
     </div>
-    <div class="flex gap-8">
+    <div class="flex gap-8 items-center">
       <div class="cart" v-if="isLogged">
         <button class="cart-btn" @click="showCart = !showCart">
           <img src="/images/cart.svg" alt="cart icon" class="w-8" />
@@ -69,22 +69,33 @@
           </ul>
         </div>
       </div>
-      <button
-        class="logout-btn uppercase px-4 py-2 rounded-lg"
-        @click="$emit('logout')"
-        v-if="isLogged"
-      >
-        Logout
-      </button>
 
-      <NuxtLink to="/"
-        ><button
-          v-if="!isLogged"
+      <div class="flex items-center gap-4">
+        <NuxtLink to="/"
+          ><div
+            v-if="isLogged"
+            class="text-3xl user-profile grid place-items-center"
+          >
+            <fa icon="user" /></div
+        ></NuxtLink>
+
+        <button
           class="logout-btn uppercase px-4 py-2 rounded-lg"
+          @click="$emit('logout')"
+          v-if="isLogged"
         >
-          Login
-        </button></NuxtLink
-      >
+          Logout
+        </button>
+
+        <NuxtLink to="/"
+          ><button
+            v-if="!isLogged"
+            class="logout-btn uppercase px-4 py-2 rounded-lg"
+          >
+            Login
+          </button></NuxtLink
+        >
+      </div>
     </div>
   </nav>
 </template>
@@ -170,5 +181,16 @@ a.nuxt-link-active {
   font-weight: bolder;
   border-bottom: 2px solid var(--c-accent);
   color: var(--c-accent);
+}
+.user-profile {
+  border: 1px solid white;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+@media (max-width: 895px) {
+  .links {
+    display: none;
+  }
 }
 </style>
