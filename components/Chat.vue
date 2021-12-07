@@ -45,10 +45,8 @@ export default {
     return {
       msg: '',
       messages: [
-        { type: 'seller', msg: 'asdasdasdasasddddddddddddddddddd' },
-        { type: 'self', msg: 'asdasdasdas' },
-        { type: 'seller', msg: 'asdasdasdas' },
-        { type: 'self', msg: 'asdasdasdas' },
+        { type: 'seller', msg: 'Welcome to my store!' },
+        { type: 'seller', msg: 'How may I help you?' },
       ],
     }
   },
