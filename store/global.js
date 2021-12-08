@@ -1,6 +1,9 @@
-export const state = () => ({ showChatbox: false })
+export const state = () => ({ showChatbox: false, showMobileNav: false })
 
 export const mutations = {
+  toggleNav(state) {
+    state.showMobileNav = !state.showMobileNav
+  },
   toggle(state) {
     state.showChatbox = !state.showChatbox
   },
