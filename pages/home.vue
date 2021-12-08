@@ -31,7 +31,7 @@
       </button>
     </div>
 
-    <div class="px-20 flex gap-20 flex-wrap justify-center pb-8">
+    <div class="px-4 flex gap-20 flex-wrap justify-center pb-8">
       <LoadingCards v-for="(loader, i) in loaders" v-show="loading" :key="i" />
 
       <div
