@@ -1,7 +1,7 @@
 <template>
   <div class="home mt-24">
     <CreatePost v-if="createShown" @closeCreatePost="createShown = false" />
-    <h1 class="font-bold text-center text-4xl mb-8 text-blue-500">
+    <h1 class="font-bold text-center text-4xl mb-8 text-sec">
       Tech Forum
     </h1>
 

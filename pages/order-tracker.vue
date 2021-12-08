@@ -1,8 +1,6 @@
 <template>
   <div class="section mt-24 px-8">
-    <h1 class="font-bold text-center text-4xl mb-8 text-blue-500">
-      Order Tracker
-    </h1>
+    <h1 class="font-bold text-center text-4xl mb-8 text-sec">Order Tracker</h1>
     <div class="flex justify-center">
       <div class="card">
         <div class="flex justify-between items-start">
@@ -77,11 +75,68 @@
         </div>
       </div>
     </div>
+    <div class="mt-24 px-8">
+      <h2>Current Location: <span class="font-bold">Naga City, Bicol</span></h2>
+      <h2>
+        Destination: <span class="font-bold">Daet, Camarines Norte, Bicol</span>
+      </h2>
+    </div>
+    <div class="mt-4 px-8">
+      <GMap
+        ref="gMap"
+        language="en"
+        :cluster="{ options: { styles: clusterStyle } }"
+        :center="{ lat: locations[0].lat, lng: locations[0].lng }"
+        :options="{ fullscreenControl: false, styles: mapStyle }"
+        :zoom="10"
+      >
+        <GMapMarker
+          v-for="location in locations"
+          :key="location.id"
+          :position="{ lat: location.lat, lng: location.lng }"
+          :options="{
+            icon:
+              location === currentLocation ? pins.selected : pins.notSelected,
+          }"
+          @click="currentLocation = location"
+        >
+          <GMapInfoWindow :options="{ maxWidth: 200 }">
+            <code> lat: {{ location.lat }}, lng: {{ location.lng }} </code>
+          </GMapInfoWindow>
+        </GMapMarker>
+        <GMapCircle :options="circleOptions" />
+      </GMap>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      currentLocation: { zoom: 10 },
+      locations: [
+        {
+          lat: 13.621775,
+          lng: 123.194824,
+        },
+      ],
+      pins: {
+        selected: 'data:image/png;base64,iVBORw0KGgo...',
+        notSelected: 'data:image/png;base64,iVBORw0KGgo...',
+      },
+      mapStyle: [],
+      clusterStyle: [
+        {
+          url: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png',
+          width: 56,
+          height: 56,
+          textColor: '#fff',
+        },
+      ],
+    }
+  },
+}
 </script>
 
 <style scoped>

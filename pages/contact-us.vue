@@ -1,8 +1,6 @@
 <template>
   <div class="section mt-24">
-    <h1 class="font-bold text-center text-4xl mb-8 text-blue-500">
-      Contact Us
-    </h1>
+    <h1 class="font-bold text-center text-4xl mb-8 text-sec">Contact Us</h1>
     <div class="flex gap-4 justify-center flex-wrap">
       <img src="/images/contact.svg" id="contact" />
 

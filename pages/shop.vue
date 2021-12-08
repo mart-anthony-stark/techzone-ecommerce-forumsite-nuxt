@@ -1,8 +1,6 @@
 <template>
   <div class="mt-24">
-    <h1 class="font-bold text-center text-4xl mb-8 text-blue-500">
-      Gadget Shop
-    </h1>
+    <h1 class="font-bold text-center text-4xl mb-8 text-sec">Gadget Shop</h1>
     <div class="banner">
       <div class="flex flex-col items-center justify-center">
         <div class="gadget-slider" id="slider">
@@ -15,7 +13,7 @@
       </div>
     </div>
 
-    <div id="categories" class="pb-8 text-center text-blue-500 text-5xl">
+    <div id="categories" class="pb-8 text-center text-sec text-5xl mt-12">
       Categories
     </div>
 
@@ -71,7 +69,7 @@
     </NuxtLink>
 
     <!-- SLIDER -->
-    <h1 class="text-blue-500 text-5xl mt-24 mb-12 text-center extrabold">
+    <h1 class="text-sec text-5xl mt-24 mb-12 text-center extrabold">
       Featured Products
     </h1>
     <div class="flex gap-24 justify-around flex-wrap mb-24 px-8">

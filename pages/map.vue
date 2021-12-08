@@ -6,7 +6,7 @@
       :cluster="{ options: { styles: clusterStyle } }"
       :center="{ lat: locations[0].lat, lng: locations[0].lng }"
       :options="{ fullscreenControl: false, styles: mapStyle }"
-      :zoom="6"
+      :zoom="10"
     >
       <GMapMarker
         v-for="location in locations"
@@ -21,7 +21,7 @@
           <code> lat: {{ location.lat }}, lng: {{ location.lng }} </code>
         </GMapInfoWindow>
       </GMapMarker>
-      <!-- <GMapCircle :options="circleOptions" /> -->
+      <GMapCircle :options="circleOptions" />
     </GMap>
   </div>
 </template>
