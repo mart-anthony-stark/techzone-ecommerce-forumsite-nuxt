@@ -95,7 +95,13 @@
         </button></NuxtLink
       >
 
-      <button class="menu"><div class="bar"></div></button>
+      <button
+        @click="$store.commit('global/toggleNav')"
+        class="menu"
+        :class="{ active: showMobileNav }"
+      >
+        <div class="bar"></div>
+      </button>
     </div>
   </nav>
 </template>
@@ -113,6 +119,9 @@ export default {
     },
     cart() {
       return this.$store.state.cart.cart
+    },
+    showMobileNav() {
+      return this.$store.state.global.showMobileNav
     },
   },
   methods: {
@@ -227,6 +236,13 @@ button.menu {
 }
 
 .menu.active .bar {
+  background: transparent;
+}
+.menu.active .bar::before {
+  transform: rotate(45deg);
+}
+.menu.active .bar::after {
+  transform: rotate(-45deg);
 }
 @media (max-width: 951px) {
   .links,
