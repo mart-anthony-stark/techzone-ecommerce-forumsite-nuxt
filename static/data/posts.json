@@ -50,7 +50,7 @@
         "totalLikes": 14
     },
     {
-        "id": 1,
+        "id": 5,
         "author": "John Doe",
         "authorProfile": "/images/gigachad.jpg",
         "username": "mgates21",
@@ -63,7 +63,7 @@
         "totalLikes": 56
       },
       {
-        "id": 2,
+        "id": 6,
         "author": "John Doe",
         "authorProfile": "/images/gigachad.jpg",
         "username": "jrstark",
