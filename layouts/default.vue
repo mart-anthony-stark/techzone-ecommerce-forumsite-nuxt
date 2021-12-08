@@ -1,5 +1,9 @@
 <template>
   <div>
+    <transition name="fade">
+      <MobileNav v-if="showMobileNav" />
+    </transition>
+
     <Navbar @logout="showLogout = true" />
     <Logout v-if="showLogout" @yes="logout" @no="showLogout = false" />
     <div>
@@ -10,6 +14,11 @@
 </template>
 <script>
 export default {
+  computed: {
+    showMobileNav() {
+      return this.$store.state.global.showMobileNav
+    },
+  },
   data() {
     return {
       showLogout: false,
@@ -111,5 +120,13 @@ body {
   100% {
     transform: scale(1);
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
