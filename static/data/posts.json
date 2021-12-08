@@ -48,5 +48,31 @@
         "liked": false,
         "disliked": false,
         "totalLikes": 14
-    }
+    },
+    {
+        "id": 1,
+        "author": "John Doe",
+        "authorProfile": "/images/gigachad.jpg",
+        "username": "mgates21",
+        "title": "High-Speed Internet Connection is Coming to Remote Areas",
+        "body": "British firm OneWeb recently launched 34 satellites into orbit from a spaceport in Kazakhstan, increasing its in-orbit constellation to 322 satellites. The satellites are intended to provide high-speed internet coverage in areas that are underserved by traditional methods. It’s part of a new wave of technologies that could help bridge the digital divide.",
+        "comments": [],
+        "totalComments": 5,
+        "liked": false,
+        "disliked": true,
+        "totalLikes": 56
+      },
+      {
+        "id": 2,
+        "author": "John Doe",
+        "authorProfile": "/images/gigachad.jpg",
+        "username": "jrstark",
+        "title": "Arista, Cisco, Huawei, Juniper Networks, and Nokia Launch New MANRS Equipment Vendor Program to Improve Routing Security Worldwide",
+        "body": "Founding members of the MANRS Initiative will tackle the systemic vulnerabilities of global routing security through groundbreaking collaborative action.",
+        "comments": [],
+        "totalComments": 8,
+        "liked": true,
+        "disliked": false,
+        "totalLikes": 27
+      }
 ]
